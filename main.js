@@ -43,6 +43,7 @@ var mainController = function($scope) {
 		this.date = date;
 		this.duration = duration;
 		this.category = category;
+		this.icon = 'https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfl1/v/t1.0-9/11988229_10207324154573256_7340333197716189372_n.jpg?oh=2f728cd41a1d40ae41903338cb9212b3&oe=569C5CE6'
 		$scope.upcomingPerformances.push(this);
 	}
 
@@ -50,6 +51,7 @@ var mainController = function($scope) {
 	var sat4 = new Performance('Jeremy', 'Poole', 'Turtle', 'Saturday at 4', 4, 'Politics')
 	var sat5 = new Performance('Joe', 'Lewis', 'buck711', 'Saturday at 5', 2, 'Redneck Comedy')
 	var sun12 = new Performance('Danielle', 'Justice', 'theRealDanielle', 'Sunday at 12', 5, 'Why I am better than you')
+	var sat7 = new Performance('Kevin', 'Harris', 'kheaven', 'Saturday at 7', 4, 'Real Life')
 
 	console.log($scope.upcomingPerformances)
 

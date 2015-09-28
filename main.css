@@ -40,25 +40,34 @@
 	font-weight: bold;
 }
 
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=- STYLING FOR THREE BOXES UNDER MAIN BOX -=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
 .threeBoxes > div {
-	height: 300px;
+	height: 364px;
+	font-family: 'Verdana';
 }
 
 .news {
 	background-color: rgba(245, 245, 237, .7);
 }
 
+/*-=-=-=-=-=- STYLING FOR COMEDY ROLL -=-=-=-=-=-*/
 .comedyRoll {
-	background-color: #464146;
+	background-color: #d3d3d3;
+	/*color: white;*/
 
 }
 
 .comedyRoll h3 {
-	color: white;
+	color: black;
+	margin-top: 10px;
+	background-color: rgba(211, 211, 211, .5);
 }
 
 .topComedians {
-	background-color: rgba(245, 245, 237, .7);
+	/*background-color: rgba(245, 245, 237, .7);*/
 }
 
 .comedyRollCategories {
@@ -68,16 +77,139 @@
 .comedyRollCategories div {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
+	color: white;
 }
 
-.comedyRollPerformers div {
-	color: #bfbfbf;
+.comedyRollPerformers > div {
+	color: black;
+	font-size: 110%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.even {
+	/*background-color: rgba(155, 155, 155, 1);*/
+}
+
+.odd {
+	background-color: rgba(155, 155, 155, 1);
 }
 
 
+.performanceUserName {
+	font-size: 120%;
+}
+
+.iconImage {
+	padding: 0;
+	width: 100%;
+	height: 80px;
+}
+
+.iconImageContainer {
+	padding: 0;
+}
+
+.paddingTop {
+	padding-top: 10px;
+}
+
+.performanceTime {
+	font-size: 90%;
+	color: #6d6d6d;
+}
+
+.scrollComedyRoll {
+	overflow-y: auto;
+	height: 318px;
+}
+
+.performanceCategory {
+	padding-top: 10px;
+	font-size: 115%;
+}
+
+.watchButton {
+	font-size: 70%;
+	border: 0;
+}
+
+.performanceViewers {
+	padding-top: 10px;
+	font-size: 80%;
+	bottom: 10px;
+}
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=- STYLING FOR ABOUT SECTION -=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+.about {
+	background-image: url('https://cdn.vectorstock.com/i/composite/42,76/grunge-city-vector-304276.jpg');
+    background-position: left;
+    background-repeat: no-repeat;
+	height: 550px;
+}
+
+.aboutComedians {
+	background-color: #ee841f;
+	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-ink-grunge-stamps-textures-icons-media/000589-black-ink-grunge-stamp-texture-icon-media-music-microphone.png');
+	background-position: left;
+	margin-top: 4%;
+	border-radius: 5px;
+}
+
+.aboutComedians h3 {
+	font-family: 'Verdana';
+}
+
+.aboutComediansText {
+	/*list-style: none;*/
+	/*padding-left: 0;*/
+	line-height: 28px;
+	height: 270px;
+	font-family: 'Verdana';
+	color: white;
+}
+
+.aboutViewers {
+	background-color: #ffd85e;
+	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060217-black-ink-grunge-stamp-textures-icon-people-things-tv-sc52.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-top: 4%;
+	border-radius: 5px;
+}
+
+.aboutViewers h3 {
+	font-family: 'Verdana';
+}
+
+.aboutViewersText {
+	height: 270px;
+	line-height: 28px;
+	font-family: 'Verdana';
+	color: white;
+}
+
+.learnMore {
+	margin-bottom: 60px;
+}
+
+.learnMore a {
+	font-size: 115%;
+}
 
 
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=- STYLING FOR FOOTER-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 
-
+.footer {
+	background-color: rgba(70, 75, 70, 1);
+	height: 60px;
+	padding-top: 22px;
+	color: black;
+}
 
 

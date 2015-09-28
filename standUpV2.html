@@ -5,6 +5,31 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+type="text/javascript"></script>
+
+<style type="text/css">
+@import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+
+#feedControl {
+margin-top : 10px;
+margin-left: auto;
+margin-right: auto;
+width : 440px;
+font-size: 12px;
+color: #9CADD0;
+}
+</style>
+<script type="text/javascript">
+function load() {
+var feed ="http://rss.cnn.com/rss/cnn_showbiz.rss";
+new GFdynamicFeedControl(feed, "feedControl");
+
+}
+google.load("feeds", "1");
+google.setOnLoadCallback(load);
+</script>
 </head>
 <body ng-controller="mainController">
 <div class="container-fluid">
@@ -40,37 +65,91 @@
 			<span>What's happening now on StandUp</span>
 		</div>
 	</div>
+
+<!-- -=-=-=-=-=-=-=-=-=-=- THREE BOXES -=-=-=-=-=-=-=-=-=-=- -->
+
 	<div class="row threeBoxes">
 		<div class="col-md-4">
 			<h3>News</h3>
+			<div id="feedControl">Loading...</div>
 		</div>
 		<div class="col-md-4 comedyRoll text-center">
-			<h3>Upcoming Performances</h3>
-			<div class="row comedyRollCategories">
-				<div class="col-md-4">
-					<h4>Comedian</h4>
-				</div>
-				<div class="col-md-4">
-					<h4>Category</h4>
-				</div>
-				<div class="col-md-4">
-					<h4>Rank</h4>
+			<div class="row">
+				<div class="col-md-row-12">
+					<h3>Upcoming Shows</h3>
 				</div>
 			</div>
-			<div class="row comedyRollPerformers" ng-repeat="(performer, performance) in upcomingPerformances">
-				<div class="col-md-4">
-					{{performance.userName}}
-				</div>
-				<div class="col-md-4">
-					{{performance.category}}
-				</div>
-				<div class="col-md-4">
-					{{performance.duration}}
+			<div class="row scrollComedyRoll">
+				<div class="col-md-12">
+					<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingPerformances">
+						<span class="col-md-2 iconImageContainer">
+							<img src="{{performance.icon}}" class="iconImage">
+						</span>
+						<span class="col-md-2 text-left paddingTop">
+							<span class="performanceUserName">{{performance.userName}}</span>
+							<div class="performanceTime">{{performance.duration}} min</div>
+							<div>
+								<button class="watchButton">Watch</button>
+							</div>
+						</span>
+						<span class="col-md-8 performanceCategory">
+							{{performance.category}}
+							<div class="performanceViewers">
+								29 Viewers - Ranked 129th
+							</div>
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4 topComedians">
+		<div class="col-md-4 text-right topComedians">
 			<h3>Top Comedians</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 pageBreak">
+			
+		</div>
+
+	<!-- -=-=-=-=-=-=-=-=-=-=- ABOUT PAGE -=-=-=-=-=-=-=-=-=-=-=- -->
+
+	</div>
+	<div class="row">
+		<div class="col-md-12 about">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-3 aboutComedians">
+					<h3>Comedians</h3>
+					<ul class="aboutComediansText">
+						<li>Starring your living room as the venue, stand up and perform in front of an audience from around the world.</li>
+						<li>Test out new material without the fear of stage freight from a real life crowd.</li>
+						<li>Gain popularity and followers to help fund your comedic journey. Once you hit 40 followers, you are upgraded to serious status and can now host paid shows to help fund your career.</li>
+						<li>Rank up on the site to ultimately become the Comedic God.</li>
+					</ul>
+					<div class="learnMore"><a href="#">
+						Learn more about becoming a comedian.
+					</a></div>
+				</div>
+				<div class="col-md-4 aboutViewers">
+					<h3>Viewers</h3>
+					<ul class="aboutViewersText">
+						<li>Discover what makes you laugh by tuning in and watching new aspiring comedians</li>
+						<li>Let them know what you think by giving them a time-stamped comment or a laugh.</li>
+						<li>Follow your favorite comedians so you always know when they have a show</li>
+						<li>Just click 'watch' on a comedians to watch now!</li>
+					</ul>
+					<div class="learnMore"><a href="#">
+						See all of our user features.
+					</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- -=-=-=-=-=-=-=-=-=-=- FOOTER -=-=-=-=-=-=-=-=-=-=-=- -->
+
+	<div class="row">
+		<div class="col-md-12 footer text-center">
+			<span>StandUp is protected under Super Awesome Trademark Services</span>
 		</div>
 	</div>
 	
