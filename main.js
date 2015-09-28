@@ -52,6 +52,7 @@ var mainController = function($scope) {
 	var sat5 = new Performance('Joe', 'Lewis', 'buck711', 'Saturday at 5', 2, 'Redneck Comedy')
 	var sun12 = new Performance('Danielle', 'Justice', 'theRealDanielle', 'Sunday at 12', 5, 'Why I am better than you')
 	var sat7 = new Performance('Kevin', 'Harris', 'kheaven', 'Saturday at 7', 4, 'Real Life')
+	var sat8 = new Performance('Will', 'Roman', 'WAR215', 'Saturday at 8', 5, 'Tech')
 
 	console.log($scope.upcomingPerformances)
 

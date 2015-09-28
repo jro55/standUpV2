@@ -1,3 +1,7 @@
+body {
+	font-family: 'Verdana';
+}
+
 .navbar {
 	background-color: rgba(70, 75, 70, .8);
 	color: white;
@@ -55,15 +59,12 @@
 
 /*-=-=-=-=-=- STYLING FOR COMEDY ROLL -=-=-=-=-=-*/
 .comedyRoll {
-	background-color: #d3d3d3;
-	/*color: white;*/
-
+	background-color: #69d2e7;
 }
 
 .comedyRoll h3 {
 	color: black;
 	margin-top: 10px;
-	background-color: rgba(211, 211, 211, .5);
 }
 
 .topComedians {
@@ -92,12 +93,13 @@
 }
 
 .odd {
-	background-color: rgba(155, 155, 155, 1);
+	background-color: #9ee8f7;
 }
 
 
 .performanceUserName {
-	font-size: 120%;
+	font-size: 110%;
+	font-weight: bold;
 }
 
 .iconImage {
@@ -211,5 +213,100 @@
 	padding-top: 22px;
 	color: black;
 }
+
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=- STYLING FOR USER PAGE -=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+/*-=-=-=-=-=-=-=- NAVBAR -=-=-=-=-=-=-=-*/
+
+.navbarUserPage {
+	height: 50px;
+	background-color: rgba(70, 75, 70, 1); 
+}
+
+.navbarStandUp {
+	margin-top: 12px;
+	font-size: 19px;
+	color: white;
+}
+
+/*.navbarToggle {
+	margin-top: 12px;
+	font-size: 19px;
+	color: white;
+}*/
+
+.userPageBackground {
+	background-color: #f9f9f9;
+}
+
+.userPageBackgroundInner {
+	background-color: white;
+	height: 800px;
+	margin-top: 30px;
+	border: 2px solid #ccc;
+	border-top: 3px solid #69d2e7;
+	border-radius: 5px;
+}
+
+.userToggle {
+	margin-top: 9%;
+}
+
+.userSide {
+	padding: 6px 24px;
+	margin-top: 5px;
+}
+
+.circle {
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	background-image: url('https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfl1/v/t1.0-9/11988229_10207324154573256_7340333197716189372_n.jpg?oh=2f728cd41a1d40ae41903338cb9212b3&oe=569C5CE6');
+	background-position: center;
+	background-size: cover;
+	margin: auto;
+}
+
+
+.welcomeText {
+	margin-top: 40px;
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 20px;
+}
+
+.welcomeText h1 {
+	font-size: 300%;
+	color: #69d2e7;
+}
+
+.welcomeText p {
+	margin-top: 20px;
+}
+
+.userStats {
+	border-right: 2px solid #ccc;
+}
+
+.userRank {
+	margin-top: 20px;
+}
+
+.userRankRank {
+	color: #F38630;
+}
+
+
+
+
+
+
+
+
+
 
 
