@@ -1,0 +1,83 @@
+.navbar {
+	background-color: rgba(70, 75, 70, .8);
+	color: white;
+}
+
+.firstBlock {
+	background-image: url('http://cdn.netmark.com/wp-content/uploads/2013/06/Mic-Depositphotos_9468405_s.jpg');
+	background-size: cover;
+    background-position: center;
+    height: 450px;
+    width: 100%;
+}
+
+.sloganText {
+	color: black;
+	font-size: 295%;
+	font-family: 'Verdana';
+}
+
+.sloganBox {
+	margin-top: 8%;
+}
+
+.options {
+	font-size: 145%;
+	margin-top: 2%;
+	font-family: 'Verdana';
+}
+
+/*.options a {
+	color: black;
+}*/
+
+.pageBreak {
+	background-color: #efefef;
+	width: 100%;
+	height: 40px;
+	padding-top: 10px;
+	font-family: 'Verdana';
+	font-weight: bold;
+}
+
+.threeBoxes > div {
+	height: 300px;
+}
+
+.news {
+	background-color: rgba(245, 245, 237, .7);
+}
+
+.comedyRoll {
+	background-color: #464146;
+
+}
+
+.comedyRoll h3 {
+	color: white;
+}
+
+.topComedians {
+	background-color: rgba(245, 245, 237, .7);
+}
+
+.comedyRollCategories {
+	background-color: black;
+}
+
+.comedyRollCategories div {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.comedyRollPerformers div {
+	color: #bfbfbf;
+}
+
+
+
+
+
+
+
+
