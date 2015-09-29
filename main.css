@@ -59,7 +59,8 @@ body {
 
 /*-=-=-=-=-=- STYLING FOR COMEDY ROLL -=-=-=-=-=-*/
 .comedyRoll {
-	background-color: #69d2e7;
+	/*background-color: #69d2e7;*/
+	background-color: #e5e5e5;
 }
 
 .comedyRoll h3 {
@@ -89,7 +90,7 @@ body {
 }
 
 .even {
-	/*background-color: rgba(155, 155, 155, 1);*/
+	/*background-color: none;*/
 }
 
 .odd {
@@ -181,7 +182,18 @@ body {
 	background-repeat: no-repeat;
 	margin-top: 4%;
 	border-radius: 5px;
+	position: relative;
 }
+
+/*.aboutViewers::before {
+	content: "";
+	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060217-black-ink-grunge-stamp-textures-icon-people-things-tv-sc52.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: .7;
+	z-index: 1;
+	position: absolute;
+}*/
 
 .aboutViewers h3 {
 	font-family: 'Verdana';
@@ -191,7 +203,7 @@ body {
 	height: 270px;
 	line-height: 28px;
 	font-family: 'Verdana';
-	color: white;
+	color: black;
 }
 
 .learnMore {
@@ -246,7 +258,7 @@ body {
 
 .userPageBackgroundInner {
 	background-color: white;
-	height: 800px;
+	height: auto;
 	margin-top: 30px;
 	border: 2px solid #ccc;
 	border-top: 3px solid #69d2e7;
@@ -300,6 +312,108 @@ body {
 	color: #F38630;
 }
 
+.calendar {
+	margin-top: 20px;
+}
+
+.accountInfo {
+	margin-top: 30px;
+}
+
+.accountInfoDetails {
+	margin-top: 15px;
+}
+
+.basicInfo {
+	font-size: 115%;
+	color: #9197AB;
+}
+
+.setBottomBorderBasicInfo {
+	border-bottom: 1px solid #9197AB;
+	padding-bottom: 10px;
+	margin-top: 10px;
+}
+
+.blackText {
+	color: black;
+}
+
+.aboutYou {
+	color: #9197AB;
+	border-bottom: 1px solid #9197AB;
+	margin-top: 20px;
+	font-size: 115%;
+}
+
+.aboutYouParagraph {
+	margin-top: 15px;
+}
+
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=- STYLING FOR UPCOMING SHOWS -=-=-=-=-=-=-=-=-=*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+.iconImageTopShows {
+	height: 70px;
+	width: 70px;
+}
+
+.performanceStats {
+	margin-top: 15px;
+}
+
+.performanceName {
+	font-size: 120%;
+	margin-top: 20px;
+}
+
+
+/*.featuredBlock1 {
+	height: 200px;
+	width: 200px;
+}*/
+.featuredBlock1 {
+	background-image: url("https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfl1/v/t1.0-9/11988229_10207324154573256_7340333197716189372_n.jpg?oh=2f728cd41a1d40ae41903338cb9212b3&oe=569C5CE6");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 200px;
+/*	height: 100%;
+	width: 100%;
+	position: relative;*/
+}
+
+.superTest {
+
+}
+
+
+
+
+.featuredBlock2 {
+	background-image: url("https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfp1/v/t1.0-9/11949146_10153632982074243_3837979557464693484_n.jpg?oh=4acc5ad02f755d247545f36a2b1d507f&oe=565D2633");
+	background-position: center;
+	background-size: cover;
+	height:200px;
+}
+
+.featuredBlock3 {
+	background-image: url("https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xat1/v/t1.0-9/11222187_10207439259846846_4423065469716358674_n.jpg?oh=72da0a0f07c0bef1b286143aa4917294&oe=568B84E7");
+	background-position: center;
+	background-size: cover;
+	height:200px;
+}
+
+.featuredBlock4 {
+	background-image: url("https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpf1/v/t1.0-9/1897929_10201625677271516_621722271_n.jpg?oh=9224be9a6edc777c3b3441b5bc77d6bc&oe=56A72099");
+	background-position: center;
+	background-size: cover;
+	height:200px;
+}
 
 
 

@@ -56,7 +56,53 @@ var mainController = function($scope) {
 
 	console.log($scope.upcomingPerformances)
 
+	$scope.toggleBoolean = true;
+	$scope.toggleBooleanFalse = function() {
+		$scope.toggleBoolean = false;
+	}
+	$scope.toggleBooleanTrue = function() {
+		$scope.toggleBoolean = true;
+	}
+
+	$scope.accountInfoToggle1 = true;
+	$scope.accountInfoToggleOverview = function() {
+		$scope.accountInfoToggle1 = true;
+		$scope.accountInfoToggle2 = false;
+		$scope.accountInfoToggle3 = false;
+	}
+	$scope.accountInfoToggleDetails = function() {
+		$scope.accountInfoToggle1 = false;
+		$scope.accountInfoToggle2 = true;
+		$scope.accountInfoToggle3 = false;
+	}
+	$scope.accountInfoToggleBasic = function() {
+		$scope.accountInfoToggle1 = false;
+		$scope.accountInfoToggle2 = false;
+		$scope.accountInfoToggle3 = true;
+	}
+
+	$scope.funnyQuotes = [
+		['BOB MONKHOUSE', "When I die, I want to go peacefully like my grandfather did in his sleep. Not yelling and screaming like the passengers in his car."],
+		['ELAYNE BOOSLER', "I have six locks on my door all in a row. When I go out, I lock every other one. I figure no matter how long somebody stands there picking the locks, they are always locking three."],
+		['MARK RUSSELL', "The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage."],
+		['ROBERT BLOCH', "Friendship is like peeing on yourself: everyone can see it, but only you get the warm feeling that it brings."],
+		['STEVE MARTIN', "First the doctor told me the good news: I was going to have a disease named after me."],
+		['LANA TURNER', "A successful man is one who makes more money than his wife can spend. A successful woman is one who can find such a man."],
+		['DAVE BARRY', "My therapist told me the way to achieve true inner peace is to finish what I start. So far I’ve finished two bags of MMs and a chocolate cake. I feel better already."],
+		['ANONYMOUS', "Some boxers believe that abstaining from sex before a bout makes them a better fighter. If that's the case, then I'm slowing becoming the greatest fighter of all time."],
+	]
+
+
+	$scope.randomizeFunnyQuotes = function() {
+		$scope.funnyQuote = $scope.funnyQuotes[Math.floor(Math.random() * $scope.funnyQuotes.length)]
+	}
+	$scope.randomizeFunnyQuotes()
+
+	$scope.image = "https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfl1/v/t1.0-9/11988229_10207324154573256_7340333197716189372_n.jpg?oh=2f728cd41a1d40ae41903338cb9212b3&oe=569C5CE6"
+
 
 }
 
 angular.module('myApp').controller("mainController", ['$scope', mainController])
+
+

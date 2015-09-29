@@ -37,7 +37,7 @@ google.setOnLoadCallback(load);
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">StandUp</a>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Sign In</a></li>
+				<li><a href="file:///Users/student/projects/standUpV2/userPage.html">Sign In</a></li>
 				<li><a href="#">Link</a></li>
 				<li><a href="#">About</a></li>
 			</ul>				
@@ -55,7 +55,7 @@ google.setOnLoadCallback(load);
 					<span><a href="#">Become a comedian</a></span>
 				</div>
 				<div class="col-md-2 options">
-					<span><a href="#">Start watching now</a></span>
+					<span><a href="file:///Users/student/projects/standUpV2/upcomingShows.html">Start watching now</a></span>
 				</div>
 			</div>
 		</div>
@@ -76,14 +76,14 @@ google.setOnLoadCallback(load);
 		<div class="col-md-4 comedyRoll text-center">
 			<div class="row">
 				<div class="col-md-row-12">
-					<h3><a href='#'>Upcoming Shows</a></h3>
+					<h3><a href="file:///Users/student/projects/standUpV2/upcomingShows.html">Upcoming Shows</a></h3>
 				</div>
 			</div>
 			<div class="row scrollComedyRoll">
 				<div class="col-md-12">
 					<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingPerformances">
 						<span class="col-md-2 iconImageContainer">
-							<img src="{{performance.icon}}" class="iconImage">
+							<img ng-src="{{performance.icon}}" class="iconImage">
 						</span>
 						<span class="col-md-2 text-left paddingTop">
 							<span class="performanceUserName">{{performance.userName}}</span>

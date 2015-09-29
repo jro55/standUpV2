@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang ='en'>
+<head>
+	<title>Stand Up V2 Upcoming shows</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<body ng-controller="mainController">
+<div class="container-fluid">
+<div class="row">
+		<div class="col-md-12 navbarUserPage">
+			<div class="row">
+				<div class="col-md-2 col-md-offset-1 navbarStandUp">
+					<span><a href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>	</span>
+				</div>
+				<div class="col-md-1 col-md-offset-2">
+					<span>Holder</span>
+					<span>Holder2</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid userPageBackground">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 userPageBackgroundInner">
+			<div class="row">
+				<div class="col-md-6" style="border-right: 2px solid #ccc">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3>Top Performances <span class="glyphicon glyphicon-fire"></span></h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<button class="btn btn-primary" ng-click="accountInfoToggleOverview()">this week</button>
+							<button class="btn btn-primary" ng-click="accountInfoToggleDetails()">this month</button>
+							<button class="btn btn-primary" ng-click="accountInfoToggleBasic()">of all time</button>
+						</div>
+					</div>
+					<div class="row thisWeek" ng-show="accountInfoToggle1">
+						<div class="col-md-12">
+							<ol>
+								<li ng-repeat="performance in upcomingPerformances | limitTo: 4">
+									<div class="row">
+										<div class="col-md-2">
+											<img ng-src="{{image}}" class="iconImageTopShows">
+										</div>
+										<div class="col-md-3 performanceStats">
+											<div><a href="#">459</a> Viewers</div>
+											<div><a href="#">2890</a> Laughs</div>
+										</div>
+										<div class="col-md-7 performanceName">
+											<span>{{performance.category}}</span>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="row thisWeek" ng-show="accountInfoToggle2">
+						<div class="col-md-12">
+							<ol>
+								<li ng-repeat="performance in upcomingPerformances | limitTo: 4">
+									<div class="row">
+										<div class="col-md-2">
+											<img ng-src="{{image}}" class="iconImageTopShows">
+										</div>
+										<div class="col-md-3 performanceStats">
+											<div><a href="#">590</a> Viewers</div>
+											<div><a href="#">3790</a> Laughs</div>
+										</div>
+										<div class="col-md-7 performanceName">
+											<span>{{performance.category}}</span>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="row thisWeek" ng-show="accountInfoToggle3">
+						<div class="col-md-12">
+							<ol>
+								<li ng-repeat="performance in upcomingPerformances | limitTo: 4">
+									<div class="row">
+										<div class="col-md-2">
+											<img ng-src="{{image}}" class="iconImageTopShows">
+										</div>
+										<div class="col-md-3 performanceStats">
+											<div><a href="#">870</a> Viewers</div>
+											<div><a href="#">5890</a> Laughs</div>
+										</div>
+										<div class="col-md-7 performanceName">
+											<span>{{performance.category}}</span>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<div class="col-md-6" style="border-right: 2px solid #ccc">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3>Featured</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5 col-md-offset-1 featuredBlock1" ng-class="{superTest: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+							<!-- <img ng-src="{{image}}"> -->
+						</div>
+						<div class="col-md-5 featuredBlock2">
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5 col-md-offset-1 featuredBlock3">
+							
+						</div>
+						<div class="col-md-5 featuredBlock4">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+<script src="main.js" type="text/javascript"></script>
+</body>
+</html>
