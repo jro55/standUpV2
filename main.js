@@ -24,7 +24,7 @@ var mainController = function($scope) {
 	var will = new User('Will', 'Roman', 'WAR215', 'solutions@willroman.com', 'Texas')
 	var jeremy = new User('Jeremy', 'Poole', 'Turtle', 'jeremyp@gmail.com', 'Louisiana')
 	var josh = new User('Josh', 'Blanchard', 'jpBaller14', 'jp@yahoo.com', 'Texas')
-
+	var todd = new User('Todd', 'Pabst', 'taptap', 'todd@gmail.com', 'Colorado')
 	// console.log($scope.users)
 
 

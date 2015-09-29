@@ -103,26 +103,34 @@
 					</div>
 				</div>
 				<div class="row">
-				<div class="col-md-6" style="border-right: 2px solid #ccc">
+				<div class="col-md-6">
 					<div class="row">
 						<div class="col-md-12 text-center">
 							<h3>Featured</h3>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5 col-md-offset-1 featuredBlock1" ng-class="{superTest: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
-							<!-- <img ng-src="{{image}}"> -->
+						<div class="col-md-5 col-md-offset-1 featuredBlock1" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+							<div class="block1Background" ng-class="{block1BackgroundChange: hover}">
+							</div>
+							<div ng-class="{block1NameChange: hover}" class="block1Name">Josh Roman</div>
 						</div>
-						<div class="col-md-5 featuredBlock2">
-							
+						<div class="col-md-5 featuredBlock2" ng-mouseenter="hover2 = true" ng-mouseleave="hover2 = false">
+							<div class="block2Background" ng-class="{block2BackgroundChange: hover2}">
+							</div>
+							<div ng-class="{block2NameChange: hover2}" class="block2Name">Christin</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5 col-md-offset-1 featuredBlock3">
-							
+						<div class="col-md-5 col-md-offset-1 featuredBlock3" ng-mouseenter="hover3 = true" ng-mouseleave="hover3 = false">
+							<div class="block3Background" ng-class="{block3BackgroundChange: hover3}">
+							</div>
+							<div ng-class="{block3NameChange: hover3}" class="block3Name">Kevin Harris</div>
 						</div>
-						<div class="col-md-5 featuredBlock4">
-							
+						<div class="col-md-5 featuredBlock4" ng-mouseenter="hover4 = true" ng-mouseleave="hover4 = false">
+						<div class="block4Background" ng-class="{block4BackgroundChange: hover4}">
+						</div>
+						<div ng-class="{block4NameChange: hover4}" class="block4Name">Andrew Roman</div>
 						</div>
 					</div>
 				</div>

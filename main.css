@@ -371,27 +371,40 @@ body {
 	margin-top: 20px;
 }
 
-
-/*.featuredBlock1 {
-	height: 200px;
-	width: 200px;
-}*/
 .featuredBlock1 {
 	background-image: url("https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfl1/v/t1.0-9/11988229_10207324154573256_7340333197716189372_n.jpg?oh=2f728cd41a1d40ae41903338cb9212b3&oe=569C5CE6");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 200px;
-/*	height: 100%;
+	padding: 0;
+}
+
+.block1Background {
+	position: relative;
+	opacity: 0;
+	height: 100%;
 	width: 100%;
-	position: relative;*/
 }
 
-.superTest {
-
+.block1BackgroundChange {
+	opacity: .5;
+	background-color: black;
 }
 
+.block1Name {
+	position: relative;
+	font-size: 120%;
+	opacity: 0;
+	z-index: 10;
+	bottom: 175px;
+	color: white;
+	left: 70px;
+}
 
+.block1NameChange {
+	opacity: 1;
+}
 
 
 .featuredBlock2 {
@@ -399,6 +412,33 @@ body {
 	background-position: center;
 	background-size: cover;
 	height:200px;
+	padding: 0;
+}
+
+.block2Background {
+	position: relative;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.block2BackgroundChange {
+	opacity: .5;
+	background-color: black;
+}
+
+.block2Name {
+	position: relative;
+	font-size: 120%;
+	opacity: 0;
+	z-index: 10;
+	bottom: 175px;
+	color: white;
+	left: 70px;
+}
+
+.block2NameChange {
+	opacity: 1;
 }
 
 .featuredBlock3 {
@@ -406,6 +446,33 @@ body {
 	background-position: center;
 	background-size: cover;
 	height:200px;
+	padding: 0;
+}
+
+.block3Background {
+	position: relative;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.block3BackgroundChange {
+	opacity: .5;
+	background-color: black;
+}
+
+.block3Name {
+	position: relative;
+	font-size: 120%;
+	opacity: 0;
+	z-index: 10;
+	bottom: 175px;
+	color: white;
+	left: 70px;
+}
+
+.block3NameChange {
+	opacity: 1;
 }
 
 .featuredBlock4 {
@@ -413,8 +480,34 @@ body {
 	background-position: center;
 	background-size: cover;
 	height:200px;
+	padding: 0;
 }
 
+.block4Background {
+	position: relative;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.block4BackgroundChange {
+	opacity: .5;
+	background-color: black;
+}
+
+.block4Name {
+	position: relative;
+	font-size: 120%;
+	opacity: 0;
+	z-index: 10;
+	bottom: 175px;
+	color: white;
+	left: 70px;
+}
+
+.block4NameChange {
+	opacity: 1;
+}
 
 
 
