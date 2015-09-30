@@ -38,7 +38,7 @@ google.setOnLoadCallback(load);
 			<a class="navbar-brand" href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="file:///Users/student/projects/standUpV2/userPage.html">Sign In</a></li>
-				<li><a href="#">Link</a></li>
+				<li><a href="#">Holder</a></li>
 				<li><a href="#">About</a></li>
 			</ul>				
 		</div>
@@ -61,20 +61,21 @@ google.setOnLoadCallback(load);
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12 pageBreak text-center">
-			<span>What's happening now on StandUp</span>
+		<div class="col-md-12 pageBreakInfo text-center">
+			<div style="font-weight: bold">--What's happening now on StandUp--</div>
+			<div><a href="file:///Users/student/projects/standUpV2/upcomingShows.html">4</a> shows currently going on and <a href="file:///Users/student/projects/standUpV2/upcomingShows.html">70</a> left to go</div>
 		</div>
 	</div>
 
 <!-- -=-=-=-=-=-=-=-=-=-=- THREE BOXES -=-=-=-=-=-=-=-=-=-=- -->
 
 	<div class="row threeBoxes">
-		<div class="col-md-4">
+		<div class="col-md-4 text-center">
 			<h3>News</h3>
 			<div id="feedControl">Loading...</div>
 		</div>
 		<div class="col-md-4 comedyRoll text-center">
-			<div class="row">
+			<div class="row upcomingShowsBorder">
 				<div class="col-md-row-12">
 					<h3><a href="file:///Users/student/projects/standUpV2/upcomingShows.html">Upcoming Shows</a></h3>
 				</div>
@@ -89,7 +90,7 @@ google.setOnLoadCallback(load);
 							<span class="performanceUserName">{{performance.userName}}</span>
 							<div class="performanceTime">{{performance.duration}} min</div>
 							<div>
-								<button class="watchButton">Watch</button>
+								<button class="watchButton"><a href="file:///Users/student/projects/standUpV2/viewShow.html">Watch</a></button>
 							</div>
 						</span>
 						<span class="col-md-8 performanceCategory">
@@ -102,8 +103,28 @@ google.setOnLoadCallback(load);
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4 text-right topComedians">
+		<div class="col-md-4 text-center topComedians">
 			<h3>Top Comedians</h3>
+			<div class="row">
+						<div class="col-md-12">
+							<ol>
+								<li ng-repeat="performance in upcomingPerformances | limitTo: 3">
+									<div class="row">
+										<div class="col-md-2">
+											<img ng-src="{{image}}" class="iconImageTopShows">
+										</div>
+										<div class="col-md-4 text-left performanceStats">
+											<div><a href="#">780</a> Followers</div>
+											<div><a href="#">47,590</a> Laughs</div>
+										</div>
+										<div class="col-md-6 text-left performanceName">
+											<span>{{performance.userName}}</span>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
 		</div>
 	</div>
 	<div class="row">

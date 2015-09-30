@@ -25,6 +25,7 @@ var mainController = function($scope) {
 	var jeremy = new User('Jeremy', 'Poole', 'Turtle', 'jeremyp@gmail.com', 'Louisiana')
 	var josh = new User('Josh', 'Blanchard', 'jpBaller14', 'jp@yahoo.com', 'Texas')
 	var todd = new User('Todd', 'Pabst', 'taptap', 'todd@gmail.com', 'Colorado')
+	var andrew = new User('Andrew', 'Roman', 'LightsCameraAction', 'andrew@gmail.com', 'Texas')
 	// console.log($scope.users)
 
 
@@ -100,6 +101,12 @@ var mainController = function($scope) {
 
 	$scope.image = "https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfl1/v/t1.0-9/11988229_10207324154573256_7340333197716189372_n.jpg?oh=2f728cd41a1d40ae41903338cb9212b3&oe=569C5CE6"
 
+	$scope.comments = []
+
+	$scope.submitYourComment = function() {
+		$scope.comments.push($scope.yourComment)
+		$scope.yourComment = ""
+	}
 
 }
 
