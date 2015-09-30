@@ -4,7 +4,7 @@ body {
 
 .navbar {
 	background-color: rgba(70, 75, 70, .8);
-	color: white;
+	/*color: white;*/	
 }
 
 .firstBlock {
@@ -235,7 +235,7 @@ body {
 
 /*-=-=-=-=-=-=-=- NAVBAR -=-=-=-=-=-=-=-*/
 
-.navbarUserPage {
+/*.navbarUserPage {
 	height: 50px;
 	background-color: rgba(70, 75, 70, 1); 
 }
@@ -244,7 +244,7 @@ body {
 	margin-top: 12px;
 	font-size: 19px;
 	color: white;
-}
+}*/
 
 /*.navbarToggle {
 	margin-top: 12px;
@@ -254,6 +254,7 @@ body {
 
 .userPageBackground {
 	background-color: #f9f9f9;
+	margin-top: 40px;
 }
 
 .userPageBackgroundInner {
@@ -356,6 +357,12 @@ body {
 /*-=-=-=-=-=-=-=-=- STYLING FOR UPCOMING SHOWS -=-=-=-=-=-=-=-=-=*/
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+.navbarRightIcons {
+	margin-top: 12px;
+	color: white;
+	font-size: 130%;
+}
 
 .iconImageTopShows {
 	height: 70px;
@@ -509,8 +516,22 @@ body {
 	opacity: 1;
 }
 
+.scrollComedyRollUpcomingPerformances {
+	overflow-y: auto;
+	height: 500px;
+	margin-top: 40px;
+}
 
+.upcomingShowsTitle {
+	border-top: 2px solid #ccc;
+	padding-top: 20px;
+}
 
+.iconImage2 {
+	padding: 0;
+	width: 80px;
+	height: 80px;
+}
 
 
 
