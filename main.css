@@ -66,17 +66,17 @@ body {
 /*-=-=-=-=-=- STYLING FOR COMEDY ROLL -=-=-=-=-=-*/
 
 .comedyRoll {
-	background-color: #e5e5e5;
+	background-color: white;
 }
 
 .comedyRoll h3 {
 	color: black;
 	margin-top: 10px;
 }
-
+/*
 .upcomingShowsBorder {
 	border-top: 1px solid gray;
-}
+}*/
 
 .topComedians {
 	/*background-color: rgba(245, 245, 237, .7);*/
@@ -113,10 +113,17 @@ body {
 	font-weight: bold;
 }
 
+.comedyRollPerformers {
+	 border-radius: 15px;
+	 background-color: #9ee8f7;
+	 margin-top: 10px;
+}
+
 .iconImage {
-	padding: 0;
+	/*padding: 0;*/
 	width: 100%;
-	height: 80px;
+	height: 70px;
+	border-radius: 15px 0 0 15px;
 }
 
 .iconImageContainer {

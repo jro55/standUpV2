@@ -82,7 +82,7 @@ google.setOnLoadCallback(load);
 			</div>
 			<div class="row scrollComedyRoll">
 				<div class="col-md-12">
-					<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingPerformances">
+					<div class="row comedyRollPerformers" ng-repeat="(performer, performance) in upcomingPerformances">
 						<span class="col-md-2 iconImageContainer">
 							<img ng-src="{{performance.icon}}" class="iconImage">
 						</span>
