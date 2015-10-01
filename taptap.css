@@ -1,0 +1,72 @@
+.background {
+	background-image: url("images/grungeHeart4.jpg");
+	background-repeat: no-repeat;
+}
+
+.main-nav {
+	font-size: 25px;
+	color: #E42161;
+
+}
+
+.main-header {
+	font-size: 35px;
+	padding-top: 90px;
+	color: wetasphault;
+
+}
+.test{
+	display: inline-block;
+}
+
+
+
+.background1 {
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	opacity: .6;
+	z-index: -1;
+}
+.background2 {
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	opacity: .6;
+	z-index: -1;
+}
+.background3{
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	opacity: .6;
+	z-index: -1;
+}
+.background4{
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	opacity: .6;
+	z-index: -1;
+}
+/*.matchCircle {
+	border-radius:50%;
+	height: 100px;
+	width: 100px;
+	background-size: cover;
+	margin:auto;
+	border: 2px;
+	background-color: hotpink;
+}*/
+
+.form-Control {
+	width: 100%;
+}
+
+.matchImages {
+	width: 140px;
+}

@@ -10,25 +10,11 @@
 </head>
 <body ng-controller="mainController">
 <div class="container-fluid">
-	<!-- <div class="row">
-		<div class="col-md-12 navbarUserPage">
-			<div class="row">
-				<div class="col-md-2 col-md-offset-1 navbarStandUp">
-					<span><a href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>	</span>
-				</div>
-				<div class="col-md-1 col-md-offset-2">
-					<span>Holder</span>
-					<span>Holder2</span>
-				</div>
-			</div>
-		</div>
-	</div> -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>
+			<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
 			<ul class="nav navbar-nav navbar-right">	
-				<li><a href="#">Link</a></li>
-				<li><a href="#">About</a></li>
+				<li><a href="#" class="glyphicon glyphicon-user"></a></li>
 			</ul>				
 		</div>
 	</nav>
@@ -38,9 +24,9 @@
 	<div class="row">
 		<div class="col-md-2 userToggle">
 			<div class="row">
-				<div class="col-md-9 col-md-offset-3">
+				<div class="col-sm-12 col-md-9 col-md-offset-3 text-center">
 					<button class="btn btn-info" ng-click="toggleBooleanFalse()">Comedy Side</button>
-					<button class="btn btn-info userSide" ng-click="toggleBooleanTrue()">User Side</button>
+					<button class="btn btn-info visible-sm-noPadding userSide" ng-click="toggleBooleanTrue()">User Side</button>
 				</div>
 			</div>
 		</div>
@@ -95,16 +81,16 @@
 				</div>
 			</div>
 			<div class="row text-center" ng-show="toggleBoolean">
-				<div class="col-md-6 userStats">
+				<div class="col-sm-6 col-md-6 userStats">
 					<h3>Account Info</h3>
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-sm-4 col-md-4">
 							<button class="btn btn-primary" ng-click="accountInfoToggleOverview()">Overview</button>
 						</div>
-						<div class="col-md-4">
-							<button class="btn btn-primary" ng-click="accountInfoToggleDetails()">Details about you</button>
+						<div class="col-sm-4 col-md-4">
+							<button class="btn btn-primary" ng-click="accountInfoToggleDetails()">About you</button>
 						</div>
-						<div class="col-md-4">
+						<div class="col-sm-4 col-md-4">
 							<button class="btn btn-primary" ng-click="accountInfoToggleBasic()">Basic Info</button>
 						</div>
 					</div>
@@ -212,26 +198,26 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-sm-6 col-md-6">
 					<div class="row">
 						<div class="col-md-row-12">
 						<h3>Upcoming Shows</h3>
 						</div>
 					</div>
 					<div class="row scrollComedyRoll">
-						<div class="col-md-12">
+						<div class="col-sm-12 col-md-12">
 							<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingPerformances">
-								<span class="col-md-2 iconImageContainer">
+								<span class="col-sm-2 col-md-2 iconImageContainer">
 									<img ng-src="{{performance.icon}}" class="iconImage">
 								</span>
-								<span class="col-md-2 text-left paddingTop">
+								<span class="col-sm-3 col-md-2 text-left paddingTop">
 									<span class="performanceUserName">{{performance.userName}}</span>
 									<div class="performanceTime">{{performance.duration}} min</div>
 									<div>
 										<button class="watchButton">Watch</button>
 									</div>
 								</span>
-								<span class="col-md-8 performanceCategory">
+								<span class="col-sm-7 col-md-8 performanceCategory">
 									{{performance.category}}
 									<div class="performanceViewers">
 										29 Viewers - Ranked 129th
@@ -242,7 +228,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<a href="file:///Users/student/projects/standUpV2/upcomingShows.html">View all upcoming shows</a>
+							<a href="./upcomingShows.html">View all upcoming shows</a>
 						</div>
 					</div>
 				</div>

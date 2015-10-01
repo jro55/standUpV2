@@ -12,9 +12,9 @@
 <div class="container-fluid viewShowBackground">
 <nav class="navbar navbar-inverse navbar-static-top viewShowNavbar" role="navigation">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>
+		<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="file:///Users/student/projects/standUpV2/userPage.html">Sign In</a></li>
+			<li><a href="./userPage.html">Sign In</a></li>
 			<li><a href="#" class="glyphicon glyphicon-user"></a></li>
 		</ul>				
 	</div>
@@ -31,7 +31,7 @@
 			Josh Roman
 		</div>
 		<div class="col-md-4 text-right">
-			Laugh-O Meter: <a href="#">980</a>
+			Laugh-O Meter: <a href="#">{{laughOMeter}}</a>
 		</div>
 	</div>
 	<div class="row">
@@ -53,6 +53,12 @@
 			<textarea class="actualCommentBox" type="text" rows="2" ng-model="yourComment" placeholder="Let them know what you think">
 			</textarea>
 			<input type="submit" value="Submit now" class="btn btn-primary submitComment" ng-click="submitYourComment()">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 text-left laughButton">
+			<button ng-click="laughing()" ng-class="{ 'laughed': currentlyLaughing }" class="btn laughButtonButton">Laugh</button>
+			<!-- <button ng-click="isTooManyLaughs()" class="btn">Laugh</button> -->
 		</div>
 	</div>
 	<div class="row">

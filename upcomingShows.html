@@ -26,10 +26,10 @@
 </div> -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>
+			<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="file:///Users/student/projects/standUpV2/userPage.html">Sign In</a></li>
-				<li><a href="#" class="glyphicon glyphicon-user"></a></li>
+				<li><a href="./userPage.html">Sign In</a></li>
+				<li><a href="./userPage.html" class="glyphicon glyphicon-user"></a></li>
 			</ul>				
 		</div>
 	</nav>
@@ -40,7 +40,7 @@
 				<div class="col-md-6" style="border-right: 2px solid #ccc">
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<h3>Top Performances <span class="glyphicon glyphicon-fire"></span></h3>
+							<h3 style="color: #F38630">Top Performances <span class="glyphicon glyphicon-fire"></span></h3>
 						</div>
 					</div>
 					<div class="row">
@@ -78,11 +78,11 @@
 										<div class="col-md-2">
 											<img ng-src="{{image}}" class="iconImageTopShows">
 										</div>
-										<div class="col-md-3 performanceStats">
+										<div class="col-md-4 performanceStats">
 											<div><a href="#">590</a> Viewers</div>
 											<div><a href="#">3790</a> Laughs</div>
 										</div>
-										<div class="col-md-7 performanceName">
+										<div class="col-md-6 performanceName">
 											<span>{{performance.category}}</span>
 										</div>
 									</div>
@@ -98,11 +98,11 @@
 										<div class="col-md-2">
 											<img ng-src="{{image}}" class="iconImageTopShows">
 										</div>
-										<div class="col-md-3 performanceStats">
+										<div class="col-md-4 performanceStats">
 											<div><a href="#">870</a> Viewers</div>
 											<div><a href="#">5890</a> Laughs</div>
 										</div>
-										<div class="col-md-7 performanceName">
+										<div class="col-md-6 performanceName">
 											<span>{{performance.category}}</span>
 										</div>
 									</div>
@@ -115,7 +115,7 @@
 				<div class="col-md-6">
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<h3>Featured</h3>
+							<h3 h3 style="color: #F38630">Featured</h3>
 						</div>
 					</div>
 					<div class="row">
@@ -136,7 +136,7 @@
 							</div>
 							<div ng-class="{block3NameChange: hover3}" class="block3Name">Kevin Harris</div>
 						</div>
-						<a href="file:///Users/student/projects/standUpV2/viewProfile.html">
+						<a href="./viewProfile.html">
 						<div class="col-md-5 featuredBlock4" ng-mouseenter="hover4 = true" ng-mouseleave="hover4 = false">
 						<div class="block4Background" ng-class="{block4BackgroundChange: hover4}">
 						</div>
@@ -149,7 +149,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12 text-center upcomingShowsTitle">
-				<h3>Upcoming Shows</h3>
+				<h3 h3 style="color: #F38630">Upcoming Shows</h3>
 			</div>
 		</div>
 		<div class="row scrollComedyRollUpcomingPerformances">

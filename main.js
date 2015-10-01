@@ -104,12 +104,55 @@ var mainController = function($scope) {
 	$scope.comments = []
 
 	$scope.submitYourComment = function() {
-		$scope.comments.push($scope.yourComment)
+		$scope.comments.push("jro55: " + $scope.yourComment)
 		$scope.yourComment = ""
+	}
+
+	$scope.signInToggle = false;
+	$scope.letsSignIn = function() {
+		$scope.signInToggle = !$scope.signInToggle;
+	}
+
+	$scope.laughOMeter = 0
+	$scope.currentlyLaughing = false;
+	$scope.laughing = function() {
+		$scope.currentlyLaughing = !$scope.currentlyLaughing
+		$scope.isTooManyLaughs()
+	}
+
+	$scope.clicks = []
+	$scope.clickCounter = 0
+	$scope.isTooManyLaughs = function() {
+		$scope.clicks.push(performance.now())
+		// console.log("Click counter: " + $scope.clickCounter)
+		// console.log("Length: " + $scope.clicks.length)
+		// console.log("First var: " + $scope.clicks[$scope.clickCounter - 1])
+		// console.log($scope.clicks[0])
+		// console.log("Second var: " + $scope.clicks[$scope.clickCounter - 9])
+		// console.log("Difference: " + $scope.clicks[$scope.clickCounter] - $scope.clicks[$scope.clickCounter - 9])
+		// console.log("-=-=-=-=-=-=-=-=-=-=-=-=-")
+
+		if ($scope.clickCounter <= 10) {
+			$scope.laughOMeter++
+			console.log($scope.clicks)
+			console.log($scope.clickCounter)
+		} 
+		else if (($scope.clicks[$scope.clickCounter] - $scope.clicks[$scope.clickCounter - 9]) > 5000) {
+			$scope.laughOMeter++
+			console.log("First else")
+		}
+		$scope.clickCounter++
+		console.log("LaughOMeter: " + $scope.laughOMeter)
 	}
 
 }
 
 angular.module('myApp').controller("mainController", ['$scope', mainController])
+
+
+
+
+
+
 
 

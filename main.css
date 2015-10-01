@@ -22,7 +22,7 @@ body {
 }
 
 .sloganBox {
-	margin-top: 8%;
+	margin-top: 9%;
 }
 
 .options {
@@ -66,17 +66,17 @@ body {
 /*-=-=-=-=-=- STYLING FOR COMEDY ROLL -=-=-=-=-=-*/
 
 .comedyRoll {
-	background-color: #e5e5e5;
+	background-color: white;
 }
 
 .comedyRoll h3 {
 	color: black;
 	margin-top: 10px;
 }
-
+/*
 .upcomingShowsBorder {
 	border-top: 1px solid gray;
-}
+}*/
 
 .topComedians {
 	/*background-color: rgba(245, 245, 237, .7);*/
@@ -113,8 +113,14 @@ body {
 	font-weight: bold;
 }
 
+.comedyRollPerformers {
+	 border-radius: 15px;
+	 background-color: #9ee8f7;
+	 margin-top: 10px;
+}
+
 .iconImage {
-	padding: 0;
+	/*padding: 0;*/
 	width: 100%;
 	height: 70px;
 	border-radius: 15px 0 0 15px;
@@ -166,35 +172,55 @@ body {
 
 .about {
 	background-image: url('https://cdn.vectorstock.com/i/composite/42,76/grunge-city-vector-304276.jpg');
-    background-position: left;
+    background-position: center;
     background-repeat: no-repeat;
 	height: 550px;
 }
 
+.micBackground {
+	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-ink-grunge-stamps-textures-icons-media/000589-black-ink-grunge-stamp-texture-icon-media-music-microphone.png');
+	height: 550px;
+    width: 100%;
+    position: absolute;
+    opacity: .3;
+    top: -47px;
+}
+
+.tvBackground {
+	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060217-black-ink-grunge-stamp-textures-icon-people-things-tv-sc52.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 550px;
+    width: 100%;
+    position: absolute;
+    opacity: .3;
+    top: -122px;
+}
+
 .aboutComedians {
 	background-color: #ee841f;
-	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-ink-grunge-stamps-textures-icons-media/000589-black-ink-grunge-stamp-texture-icon-media-music-microphone.png');
+	/*background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-ink-grunge-stamps-textures-icons-media/000589-black-ink-grunge-stamp-texture-icon-media-music-microphone.png');*/
 	background-position: left;
 	margin-top: 4%;
 	border-radius: 5px;
 }
 
 .aboutComedians h3 {
-	font-family: 'Verdana';
+	color: white;
 }
 
 .aboutComediansText {
 	/*list-style: none;*/
 	/*padding-left: 0;*/
 	line-height: 28px;
-	height: 270px;
-	font-family: 'Verdana';
-	color: white;
+	/*height: 270px;*/
+	font-weight: bold;
+	color: black;
 }
 
 .aboutViewers {
 	background-color: #ffd85e;
-	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060217-black-ink-grunge-stamp-textures-icon-people-things-tv-sc52.png');
+	/*background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060217-black-ink-grunge-stamp-textures-icon-people-things-tv-sc52.png');*/
 	background-position: center;
 	background-repeat: no-repeat;
 	margin-top: 4%;
@@ -213,22 +239,43 @@ body {
 }*/
 
 .aboutViewers h3 {
-	font-family: 'Verdana';
+	color: white;
 }
 
 .aboutViewersText {
-	height: 270px;
+	/*height: 270px;*/
 	line-height: 28px;
-	font-family: 'Verdana';
+	font-weight: bold;
 	color: black;
 }
 
 .learnMore {
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 .learnMore a {
 	font-size: 115%;
+}
+
+.signInBox {
+	background-color: rgba(242, 242, 242, .8);
+	border-radius: 5px;
+	border: 2px solid #69d2e7;
+	position: relative;
+    height: 700px;
+    width: 100%;
+    bottom: 1350px;
+    left: 0;
+}
+
+.signInBoxInner {
+	position: relative;
+	width: 450px;
+	border: 1px solid black;
+    left: 34%;
+    top: 15%;
+    background-color: whitesmoke;
+    border-radius: 15px;
 }
 
 
@@ -237,7 +284,7 @@ body {
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 
 .footer {
-	background-color: rgba(70, 75, 70, 1);
+	background-color: #cecece;
 	height: 60px;
 	padding-top: 22px;
 	color: black;
@@ -290,6 +337,12 @@ body {
 .userSide {
 	padding: 6px 24px;
 	margin-top: 5px;
+}
+
+@media screen and (max-width: 991px) {
+    .userSide {
+    	margin-top: 0;
+    }
 }
 
 .circle {
@@ -391,7 +444,7 @@ body {
 }
 
 .performanceName {
-	font-size: 120%;
+	font-size: 135%;
 	margin-top: 20px;
 }
 
@@ -536,12 +589,19 @@ body {
 .scrollComedyRollUpcomingPerformances {
 	overflow-y: auto;
 	height: 500px;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .upcomingShowsTitle {
 	border-top: 2px solid #ccc;
 	padding-top: 20px;
+}
+
+.upcomingShowsTitle h3 {
+	width: 350px;
+    margin: auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
 }
 
 .iconImage2 {
@@ -579,6 +639,11 @@ body {
 	border-top: 2px solid #ccc;
 }
 
+.friendButtons {
+	margin-top: 20px;
+	padding-bottom: 20px; 
+	border-bottom: 2px solid #ccc;
+}
 
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
@@ -623,6 +688,7 @@ body {
 	border-radius: 5px 5px 5px 0;
 	background-color: #e5e5e5;
 	height: 120px;
+	padding-top: 10px;
 }
 
 .actualCommentBox {
@@ -630,18 +696,67 @@ body {
 	top: 0px;
 	left: 0;
 	border-radius: 0 0 5px 5px;
-	width: 890px;
+	width: 80%;
 }
 
 .submitComment {
 	position: absolute;
 	top: 5px;
 	right: 0;
+	display: block;
 }
 
-.positionCommentBox {
-	margin-top: 10px;
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=- STYLING FOR SIGN UP PAGE -=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+.submitInfo {
+	margin-top: 15px;
 }
+
+.laughButton {
+	margin-top: 50px;
+	padding-left: 0px;
+}
+
+.laughButtonButton {
+	width: 150px;
+	background-color: #F38630;
+	color: white;
+	transition:all linear 0.1s;
+	font-size: 100%;
+}
+
+.laughButtonButton:hover {
+	color: white;
+}
+
+.laughed {
+	background-color: red;
+	font-size: 150%;
+	color: white;
+}
+
+.footerView {
+	padding-top: 80px;
+}
+
+
+/*.laughButton button:hover {
+	background-color: #ff432e;
+}*/
+
+
+
+
+
+.noPadding {
+	padding: 0;
+}
+
 
 
 
