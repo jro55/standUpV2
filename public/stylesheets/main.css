@@ -8,7 +8,7 @@ body {
 }
 
 .firstBlock {
-	background-image: url('http://cdn.netmark.com/wp-content/uploads/2013/06/Mic-Depositphotos_9468405_s.jpg');
+	background-image: url('/images/mic.jpg');
 	background-size: cover;
     background-position: center;
     height: 450px;
