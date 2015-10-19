@@ -175,6 +175,7 @@ body {
 .micBackground {
 	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-ink-grunge-stamps-textures-icons-media/000589-black-ink-grunge-stamp-texture-icon-media-music-microphone.png');
 	height: 550px;
+    background-repeat: no-repeat;
     width: 100%;
     position: absolute;
     opacity: .3;
@@ -759,3 +760,12 @@ body {
 
 
 
+
+.signInWithFacebook {
+    margin-top: 20px;
+}
+
+.registerInfo {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

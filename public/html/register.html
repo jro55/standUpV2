@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang ='en'>
+<head>
+	<title>Stand Up V2 View Profile</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./public/stylesheets/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<body ng-controller="mainController">
+<div class="container-fluid viewShowBackground">
+<nav class="navbar navbar-inverse navbar-static-top viewShowNavbar" role="navigation">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="./userPage.html">Sign In</a></li>
+		</ul>				
+	</div>
+</nav>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <h2 style="color: #F38630">
+            Get started today with StandUp!
+        </h2>
+        <p class="registerInfo">
+            Quickly and easily register with StandUp by using your Facebook account. Don't worry, StandUp won't post anything without your permission.
+        </p>
+        <a href="/auth/facebook" class="signInWithFacebook">
+            <img src="./public/images/login-with-facebook.png" alt="">
+        </a>
+        
+        <h4>
+            Here is what you get for signing up!
+        </h4>
+    </div>
+</div>
+
+
+
+
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+<script src="./public/javascripts/main.js" type="text/javascript"></script>
+</body>
+</html>

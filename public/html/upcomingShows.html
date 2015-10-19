@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang ='en'>
+<head>
+	<title>Stand Up V2 Upcoming shows</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<body ng-controller="mainController">
+<div class="container-fluid">
+<!-- <div class="row">
+		<div class="col-md-12 navbarUserPage">
+			<div class="row">
+				<div class="col-md-2 col-md-offset-1 navbarStandUp">
+					<span><a href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>	</span>
+				</div>
+				<div class="col-md-2 col-md-offset-7 navbarRightIcons">
+					<a href="#"><span class="glyphicon glyphicon-search"> </span></a>
+					<a href="file:///Users/student/projects/standUpV2/userPage.html"><span class="glyphicon glyphicon-user"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./userPage.html">Sign In</a></li>
+				<li><a href="./userPage.html" class="glyphicon glyphicon-user"></a></li>
+			</ul>				
+		</div>
+	</nav>
+<div class="container-fluid userPageBackground">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 userPageBackgroundInner">
+			<div class="row">
+				<div class="col-md-6" style="border-right: 2px solid #ccc">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 style="color: #F38630">Top Performances <span class="glyphicon glyphicon-fire"></span></h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<button class="btn btn-primary" ng-click="accountInfoToggleOverview()">this week</button>
+							<button class="btn btn-primary" ng-click="accountInfoToggleDetails()">this month</button>
+							<button class="btn btn-primary" ng-click="accountInfoToggleBasic()">of all time</button>
+						</div>
+					</div>
+					<div class="row thisWeek" ng-show="accountInfoToggle1">
+						<div class="col-md-12">
+							<ol>
+								<li ng-repeat="performance in upcomingPerformances | limitTo: 4">
+									<div class="row">
+										<div class="col-md-3">
+											<img ng-src="{{image}}" class="iconImageTopShows">
+										</div>
+										<div class="col-md-4 performanceStats">
+											<div><a href="#">459</a> Viewers</div>
+											<div><a href="#">2890</a> Laughs</div>
+										</div>
+										<div class="col-md-5 performanceName">
+											<span>{{performance.category}}</span>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="row thisWeek" ng-show="accountInfoToggle2">
+						<div class="col-md-12">
+							<ol>
+								<li ng-repeat="performance in upcomingPerformances | limitTo: 4">
+									<div class="row">
+										<div class="col-md-2">
+											<img ng-src="{{image}}" class="iconImageTopShows">
+										</div>
+										<div class="col-md-4 performanceStats">
+											<div><a href="#">590</a> Viewers</div>
+											<div><a href="#">3790</a> Laughs</div>
+										</div>
+										<div class="col-md-6 performanceName">
+											<span>{{performance.category}}</span>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="row thisWeek" ng-show="accountInfoToggle3">
+						<div class="col-md-12">
+							<ol>
+								<li ng-repeat="performance in upcomingPerformances | limitTo: 4">
+									<div class="row">
+										<div class="col-md-2">
+											<img ng-src="{{image}}" class="iconImageTopShows">
+										</div>
+										<div class="col-md-4 performanceStats">
+											<div><a href="#">870</a> Viewers</div>
+											<div><a href="#">5890</a> Laughs</div>
+										</div>
+										<div class="col-md-6 performanceName">
+											<span>{{performance.category}}</span>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 h3 style="color: #F38630">Featured</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5 col-md-offset-1 featuredBlock1" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+							<div class="block1Background" ng-class="{block1BackgroundChange: hover}">
+							</div>
+							<div ng-class="{block1NameChange: hover}" class="block1Name">Josh Roman</div>
+						</div>
+						<div class="col-md-5 featuredBlock2" ng-mouseenter="hover2 = true" ng-mouseleave="hover2 = false">
+							<div class="block2Background" ng-class="{block2BackgroundChange: hover2}">
+							</div>
+							<div ng-class="{block2NameChange: hover2}" class="block2Name">Christin</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5 col-md-offset-1 featuredBlock3" ng-mouseenter="hover3 = true" ng-mouseleave="hover3 = false">
+							<div class="block3Background" ng-class="{block3BackgroundChange: hover3}">
+							</div>
+							<div ng-class="{block3NameChange: hover3}" class="block3Name">Kevin Harris</div>
+						</div>
+						<a href="./viewProfile.html">
+						<div class="col-md-5 featuredBlock4" ng-mouseenter="hover4 = true" ng-mouseleave="hover4 = false">
+						<div class="block4Background" ng-class="{block4BackgroundChange: hover4}">
+						</div>
+						<div ng-class="{block4NameChange: hover4}" class="block4Name">Andrew Roman</div>
+						</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center upcomingShowsTitle">
+				<h3 h3 style="color: #F38630">Upcoming Shows</h3>
+			</div>
+		</div>
+		<div class="row scrollComedyRollUpcomingPerformances">
+			<div class="col-md-12">
+				<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingPerformances">
+					<span class="col-md-1 iconImageContainer">
+						<img ng-src="{{performance.icon}}" class="iconImage2">
+					</span>
+					<span class="col-md-2 text-left paddingTop">
+						<span class="performanceUserName">{{performance.userName}}</span>
+						<div class="performanceTime">{{performance.duration}} min</div>
+						<div>
+							<button class="watchButton">Watch</button>
+						</div>
+					</span>
+					<span class="col-md-8 performanceCategory">
+						{{performance.category}}
+						<div class="performanceViewers">
+							29 Viewers - Ranked 129th
+						</div>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 footer userPageFooter text-center">
+			<span>StandUp is protected under Super Awesome Trademark Services</span>
+		</div>
+	</div>
+</div>
+
+
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+<script src="/javascripts/main.js" type="text/javascript"></script>
+</body>
+</html>

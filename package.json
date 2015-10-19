@@ -1,0 +1,29 @@
+{
+  "name": "standupv2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jro55/standUpV2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jro55/standUpV2/issues"
+  },
+  "homepage": "https://github.com/jro55/standUpV2#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.11",
+    "passport": "^0.3.0",
+    "passport-facebook": "^2.0.0"
+  }
+}

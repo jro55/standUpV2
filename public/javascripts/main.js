@@ -1,6 +1,30 @@
-angular.module('myApp', ['ui.bootstrap'])
+angular.module('myApp', ['ui.bootstrap', 'ngRoute'])
 
-var mainController = function($scope) {
+
+angular.module('myApp')
+	.config(['$routeProvider', function($routeProvider){
+		// No need to define #, it is assumed
+		$routeProvider
+			.when('/', {
+				templateUrl : '/html/home.html',
+				controller : 'mainController'
+			})
+			.when('/profile/:heroName', {
+				templateUrl : '/html/hero.html',
+				controller : 'mainController'
+			})
+			
+//			.otherwise({
+//				redirectTo : '/'
+//			})
+
+	}])
+
+
+angular.module('myApp')
+    .controller("mainController", ['$scope', function($scope) {
+        
+
 
 	// -=-=-=-=-=- USER CONSTRUCTOR and several new test users -=-=-=-=-=-=-=-
 
@@ -55,7 +79,7 @@ var mainController = function($scope) {
 	var sat7 = new Performance('Kevin', 'Harris', 'kheaven', 'Saturday at 7', 4, 'Real Life')
 	var sat8 = new Performance('Will', 'Roman', 'WAR215', 'Saturday at 8', 5, 'Tech')
 
-	console.log($scope.upcomingPerformances)
+//	console.log($scope.upcomingPerformances)
 
 	$scope.toggleBoolean = true;
 	$scope.toggleBooleanFalse = function() {
@@ -145,9 +169,9 @@ var mainController = function($scope) {
 		console.log("LaughOMeter: " + $scope.laughOMeter)
 	}
 
-}
 
-angular.module('myApp').controller("mainController", ['$scope', mainController])
+
+}])
 
 
 
