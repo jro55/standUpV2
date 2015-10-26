@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<html ng-app="myApp" lang ='en'>
-<head>
-	<title>Stand Up V2 User Page</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
-
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-</head>
-<body ng-controller="mainController">
-<div class="container-fluid">
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
-			<ul class="nav navbar-nav navbar-right">	
-				<li><a href="#" class="glyphicon glyphicon-user"></a></li>
-			</ul>				
-		</div>
-	</nav>
-</div>
-
 <div class="container-fluid userPageBackground">
 	<div class="row">
 		<div class="col-md-2 userToggle">
 			<div class="row">
 				<div class="col-sm-12 col-md-9 col-md-offset-3 text-center">
-					<button class="btn btn-info" ng-click="toggleBooleanFalse()">Comedy Side</button>
-					<button class="btn btn-info visible-sm-noPadding userSide" ng-click="toggleBooleanTrue()">User Side</button>
+					<button class="btn btn-info" ng-click="toggleBooleanFalse()" ng-class="{active: userSide}">Comedy Side</button>
+					<button class="btn btn-info visible-sm-noPadding userSide" ng-class="{active: comedySide}" ng-click="toggleBooleanTrue()">User Side</button>
 				</div>
 			</div>
 		</div>
@@ -85,13 +63,13 @@
 					<h3>Account Info</h3>
 					<div class="row">
 						<div class="col-sm-4 col-md-4">
-							<button class="btn btn-primary" ng-click="accountInfoToggleOverview()">Overview</button>
+							<button class="btn btn-primary" ng-click="accountInfoToggleOverview()" ng-class="{active: accountInfoToggle1}">Overview</button>
 						</div>
 						<div class="col-sm-4 col-md-4">
-							<button class="btn btn-primary" ng-click="accountInfoToggleDetails()">About you</button>
+							<button class="btn btn-primary" ng-click="accountInfoToggleDetails()" ng-class="{active: accountInfoToggle2}">About you</button>
 						</div>
 						<div class="col-sm-4 col-md-4">
-							<button class="btn btn-primary" ng-click="accountInfoToggleBasic()">Basic Info</button>
+							<button class="btn btn-primary" ng-click="accountInfoToggleBasic()" ng-class="{active: accountInfoToggle3}">Basic Info</button>
 						</div>
 					</div>
 					<div class="row">
@@ -243,7 +221,10 @@
 </div>
 
 
+
 <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+<!--
 <script src="/javascripts/main.js" type="text/javascript"></script>
 </body>
 </html>
+-->

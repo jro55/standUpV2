@@ -29,6 +29,9 @@ passport.use(new FacebookStrategy({
                 facebookId: profile.id,
                 laughterPoints: 0,
                 dateOfSignUp: new Date(),
+                nickNames: '',
+                favoriteQuotes: [],
+                following: Array,
             })
             
             user.save(function(err) {

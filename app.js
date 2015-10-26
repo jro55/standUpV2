@@ -34,9 +34,9 @@ app.get('/', function(req, res){
 //    res.sendFile('upcomingShows.html', {root: './'})
 //})
 //
-//app.get('/userpage', function(req, res) {
-//    res.sendFile('userPage.html', {root: './'})
-//})
+app.get('/userpage', function(req, res) {
+    res.sendFile('standUpV2.html', {root: './public/html/'})
+})
 
 mongoose.connect('mongodb://localhost/standup')
 
@@ -52,7 +52,7 @@ app.get('/auth/facebook',
 app.get('/auth/facebook/callback', 
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/userpage');
+    res.redirect('/#userpage');
   });
 
 app.get('/logout', function(req, res){

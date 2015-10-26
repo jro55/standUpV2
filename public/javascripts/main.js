@@ -9,10 +9,18 @@ angular.module('myApp')
 				templateUrl : '/html/home.html',
 				controller : 'mainController'
 			})
-			.when('/profile/:heroName', {
-				templateUrl : '/html/hero.html',
+			.when('/signup', {
+				templateUrl : '/html/register.html',
 				controller : 'mainController'
 			})
+            .when('/upcomingshows', {
+                templateUrl : '/html/upcomingShows.html',
+                controller : 'mainController'
+            })
+            .when('/userpage', {
+                templateUrl : '/html/userPage.html',
+                controller : 'mainController'
+            })
 			
 //			.otherwise({
 //				redirectTo : '/'
@@ -82,11 +90,16 @@ angular.module('myApp')
 //	console.log($scope.upcomingPerformances)
 
 	$scope.toggleBoolean = true;
+    $scope.comedySide = false;
 	$scope.toggleBooleanFalse = function() {
 		$scope.toggleBoolean = false;
+        $scope.comedySide = false;
+        $scope.userSide = true;
 	}
 	$scope.toggleBooleanTrue = function() {
 		$scope.toggleBoolean = true;
+        $scope.comedySide = true;
+        $scope.userSide = false;
 	}
 
 	$scope.accountInfoToggle1 = true;
