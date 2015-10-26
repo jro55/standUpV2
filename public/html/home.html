@@ -78,13 +78,13 @@
 			<div class="row">
 						<div class="col-sm-12 col-md-12">
 							<ol>
-								<li ng-repeat="performance in upcomingPerformances | limitTo: 3">
+								<li ng-repeat="user in users | limitTo: 3">
 									<div class="row">
 										<div class="col-sm-3 col-md-3">
 											<img ng-src="{{image}}" class="iconImageTopShows">
 										</div>
 										<div class="col-sm-4 col-md-4 text-left performanceName">
-											<span>{{performance.userName}}</span>
+											<span>{{user.userName}}</span>
 										</div>
 										<div class="col-sm-5 col-md-5 text-left performanceStats">
 											<div><a href="#">780</a> Followers</div>
@@ -130,7 +130,7 @@
 						<li>Follow your favorite comedians so you always know when they have a show.</li>
 						<li>Just click 'watch' on a comedians to watch now!</li>
 					</ul>
-                    <a href="/#signup"><div class="learnMore text-center">See all of our user features.</div></a>
+                    <a href="/#signup"><div class="learnMore text-center" style="z-index: 2">See all of our user features.</div></a>
 					<div class="tvBackground"></div>
 				</div>
 			</div>

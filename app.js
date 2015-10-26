@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+mongoose.connect('mongodb://localhost/standup')
 // Routes \\
 app.get('/', function(req, res){
   res.sendFile('standUpV2.html', {root: './public/html/'})
@@ -34,11 +34,26 @@ app.get('/', function(req, res){
 //    res.sendFile('upcomingShows.html', {root: './'})
 //})
 //
-app.get('/userpage', function(req, res) {
+app.get('/userpage/:user', function(req, res) {
     res.sendFile('standUpV2.html', {root: './public/html/'})
 })
 
-mongoose.connect('mongodb://localhost/standup')
+app.get('/hostAShow', function(req, res) {
+    res.sendFile('standUpV2.html', {root: './public/html/'})
+})
+
+// User Routes \\
+var userCtrl = require('./controllers/userController.js')
+app.get('/api/users', userCtrl.getAllUsers)
+
+//app.get('/api/users/:username', CREATEFUNCTION)
+
+app.get('/api/me', function(req, res){
+	res.send(req.user)
+})
+app.post('/api/users/edituseraboutyou', userCtrl.updateAboutYou)
+app.post('/api/users/edituserbasicinfo', userCtrl.updateBasicInfo)
+
 
 require('./config/passport.js')
 
@@ -52,7 +67,7 @@ app.get('/auth/facebook',
 app.get('/auth/facebook/callback', 
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/#userpage');
+    res.redirect('/#');
   });
 
 app.get('/logout', function(req, res){

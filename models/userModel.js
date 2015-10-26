@@ -9,8 +9,12 @@ var userSchema = mongoose.Schema({
     laughterPoints: Number,
     dateOfSignUp: Date,
     nickNames: String,
-    favoriteQuotes: Array,
+    favoriteQuote: String,
     following: Array,
+    numberOfPerformances: Number,
+    gender: String,
+    age: Number,
+    email: String,
 })
 
 var User = mongoose.model('user', userSchema)

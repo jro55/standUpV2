@@ -21,7 +21,7 @@ passport.use(new FacebookStrategy({
             }
             console.log(accessToken, refreshToken, profile, done)
             
-            user = new User({
+            var user = new User({
                 name: profile.displayName,
                 userName: profile.displayName,
                 location: '',
@@ -30,8 +30,12 @@ passport.use(new FacebookStrategy({
                 laughterPoints: 0,
                 dateOfSignUp: new Date(),
                 nickNames: '',
-                favoriteQuotes: [],
-                following: Array,
+                favoriteQuote: '',
+                following: [],
+                numberOfPerformances: 0,
+                gender: '',
+                age: 0,
+                email: '',
             })
             
             user.save(function(err) {

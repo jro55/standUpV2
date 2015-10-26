@@ -19,8 +19,12 @@ angular.module('myApp')
             })
             .when('/userpage', {
                 templateUrl : '/html/userPage.html',
-                controller : 'mainController'
+                controller : 'userPageController'
             })
+            .when('/hostashow', {
+                templateUrl : '/html/hostashow.html',
+                controller : 'mainController'  
+                })
 			
 //			.otherwise({
 //				redirectTo : '/'
@@ -30,14 +34,14 @@ angular.module('myApp')
 
 
 angular.module('myApp')
-    .controller("mainController", ['$scope', function($scope) {
+    .controller("mainController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
         
 
 
 	// -=-=-=-=-=- USER CONSTRUCTOR and several new test users -=-=-=-=-=-=-=-
 
-
-	$scope.users = []
+        
+	$scope.usersTest = []
 	var User = function(firstName, lastName, userName, email, location) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -46,7 +50,7 @@ angular.module('myApp')
 		this.location = location;
 		this.userSinceDate = new Date();
 		this.rating = 0;
-		$scope.users.push(this);
+		$scope.usersTest.push(this);
 	}
 
 	var josh = new User('Josh', 'Roman', 'jro55', 'joshproman@yahoo.com', 'Colorado')
@@ -89,17 +93,17 @@ angular.module('myApp')
 
 //	console.log($scope.upcomingPerformances)
 
-	$scope.toggleBoolean = true;
-    $scope.comedySide = false;
+	$scope.toggleBoolean = false;
+    $scope.comedySide = true
 	$scope.toggleBooleanFalse = function() {
 		$scope.toggleBoolean = false;
-        $scope.comedySide = false;
-        $scope.userSide = true;
+        $scope.userSide = false;
+        $scope.comedySide = true;
 	}
 	$scope.toggleBooleanTrue = function() {
 		$scope.toggleBoolean = true;
-        $scope.comedySide = true;
-        $scope.userSide = false;
+        $scope.userSide = true;
+        $scope.comedySide = false;
 	}
 
 	$scope.accountInfoToggle1 = true;
@@ -181,10 +185,159 @@ angular.module('myApp')
 		$scope.clickCounter++
 		console.log("LaughOMeter: " + $scope.laughOMeter)
 	}
-
+     
+    $scope.users = []
+    $http.get('/api/users')
+        .then(function(returnData) {
+//            console.log(returnData.data[0])
+            $scope.users.push(returnData.data[0])
+    })
+    
+//    var user = 
+//    $http.get('/api/users/' + user)
+//        .then(function(returnData) {
+//            $scope.user = returnData.data
+//        })
+    
+//    $scope.hostAShow = function() {
+//        $http.get('/hostashow')
+//            .then(function(returnData) {
+//                console.log(returnData)
+//        })
+//    }
+    
+    authService.authCheck(function(user){
+			console.log('USER!', user)
+			$scope.currentUser = user
+		})
 
 
 }])
+
+angular.module('myApp')
+    .controller("userPageController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
+        
+        	$scope.toggleBoolean = false;
+    $scope.comedySide = true
+	$scope.toggleBooleanFalse = function() {
+		$scope.toggleBoolean = false;
+        $scope.userSide = false;
+        $scope.comedySide = true;
+	}
+	$scope.toggleBooleanTrue = function() {
+		$scope.toggleBoolean = true;
+        $scope.userSide = true;
+        $scope.comedySide = false;
+	}
+
+	$scope.accountInfoToggle1 = true;
+	$scope.accountInfoToggleOverview = function() {
+		$scope.accountInfoToggle1 = true;
+		$scope.accountInfoToggle2 = false;
+		$scope.accountInfoToggle3 = false;
+	}
+	$scope.accountInfoToggleDetails = function() {
+		$scope.accountInfoToggle1 = false;
+		$scope.accountInfoToggle2 = true;
+		$scope.accountInfoToggle3 = false;
+	}
+	$scope.accountInfoToggleBasic = function() {
+		$scope.accountInfoToggle1 = false;
+		$scope.accountInfoToggle2 = false;
+		$scope.accountInfoToggle3 = true;
+	}
+
+	$scope.funnyQuotes = [
+		['BOB MONKHOUSE', "When I die, I want to go peacefully like my grandfather did in his sleep. Not yelling and screaming like the passengers in his car."],
+		['ELAYNE BOOSLER', "I have six locks on my door all in a row. When I go out, I lock every other one. I figure no matter how long somebody stands there picking the locks, they are always locking three."],
+		['MARK RUSSELL', "The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage."],
+		['ROBERT BLOCH', "Friendship is like peeing on yourself: everyone can see it, but only you get the warm feeling that it brings."],
+		['STEVE MARTIN', "First the doctor told me the good news: I was going to have a disease named after me."],
+		['LANA TURNER', "A successful man is one who makes more money than his wife can spend. A successful woman is one who can find such a man."],
+		['DAVE BARRY', "My therapist told me the way to achieve true inner peace is to finish what I start. So far I’ve finished two bags of MMs and a chocolate cake. I feel better already."],
+		['ANONYMOUS', "Some boxers believe that abstaining from sex before a bout makes them a better fighter. If that's the case, then I'm slowing becoming the greatest fighter of all time."],
+	]
+
+
+	$scope.randomizeFunnyQuotes = function() {
+		$scope.funnyQuote = $scope.funnyQuotes[Math.floor(Math.random() * $scope.funnyQuotes.length)]
+	}
+	$scope.randomizeFunnyQuotes()
+        
+        
+        
+    authService.authCheck(function(user){
+        console.log('USER!', user)
+        $scope.currentUser = user
+    })
+        
+    $scope.editThis = false;
+    $scope.letsEditThis = function() {
+        $scope.editThis = !$scope.editThis
+    }
+        
+    
+//     $scope.text02 = 'You will need to click the button to enable content editing before you can change this text.';
+//     $scope.editmode = false;
+//     $scope.toggleEditMode = function () {
+//         $scope.editmode = $scope.editmode === false ? true : false;
+//     }
+    
+     $scope.editUserAboutYou = function() {
+         $http.post('/api/users/edituseraboutyou', $scope.currentUser)
+            .then(function(returnData){
+                console.log(returnData.data)
+                
+         })
+         $scope.editThis = false;
+     }
+     
+     $scope.editUserBasicInfo = function() {
+         $http.post('/api/users/edituserbasicinfo', $scope.currentUser)
+            .then(function(returnData){
+                console.log(returnData.data)
+         })
+         $scope.editThis = false;
+     }
+        
+        
+    }])
+
+//angular.module('myApp')
+//    .directive('contenteditable', [function() {
+//        require: "ngModel",
+//    link: function(scope, element, attrs, ngModel) {
+//
+//      function read() {
+//        ngModel.$setViewValue(element.html());
+//      }
+//
+//      ngModel.$render = function() {
+//        element.html(ngModel.$viewValue || "");
+//      };
+//
+//      element.bind("blur keyup change", function() {
+//        scope.$apply(read);
+//      });
+//    }
+//  };
+//    }])
+
+
+
+angular.module('myApp')
+	.service('authService', ['$http', '$location', function($http){
+		
+		this.authCheck = function(cb){
+			$http.get('/api/me')
+				.then( function(returnData){
+					cb(returnData.data)
+
+				})
+		}
+					
+						
+	}])
 
 
 

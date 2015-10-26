@@ -185,11 +185,11 @@ body {
 	background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060217-black-ink-grunge-stamp-textures-icon-people-things-tv-sc52.png');
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 550px;
+	height: 200px;
     width: 100%;
     position: absolute;
     opacity: .1;
-    top: -122px;
+    top: 50px;
 }
 
 .aboutComedians {
@@ -795,5 +795,19 @@ body {
 
 
 .hoverEffects:hover {
-    background-color: black;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.hostButton {
+    margin-top: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.topStuff {
+    margin-top: 55px;
+}
+
+.fullWidth {
+    width: 100%;
 }

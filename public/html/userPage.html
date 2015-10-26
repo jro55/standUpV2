@@ -2,9 +2,9 @@
 	<div class="row">
 		<div class="col-md-2 userToggle">
 			<div class="row">
-				<div class="col-sm-12 col-md-9 col-md-offset-3 text-center">
-					<button class="btn btn-info" ng-click="toggleBooleanFalse()" ng-class="{active: userSide}">Comedy Side</button>
-					<button class="btn btn-info visible-sm-noPadding userSide" ng-class="{active: comedySide}" ng-click="toggleBooleanTrue()">User Side</button>
+				<div class="col-sm-12 col-md-9 col-md-offset-3 text-left">
+					<button class="btn btn-info" ng-click="toggleBooleanFalse()" ng-class="{active: comedySide}">Comedy Side</button>
+					<button class="btn btn-info visible-sm-noPadding userSide" ng-class="{active: userSide}" ng-click="toggleBooleanTrue()">Account Info</button>
 				</div>
 			</div>
 		</div>
@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="col-md-12 text-center welcomeText">
 					<div class="circle"></div>
-					<h1>Welcome, Josh</h1>
+					<h1>Welcome, {{currentUser.userName}}</h1>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<p>{{funnyQuote[1]}}</p>
@@ -20,6 +20,11 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row text-center hostButton">
+			    <div class="col-md-12">
+                    <a href="/#hostashow"><button class="btn btn-primary">Host a StandUp Performance!</button></a>
+			    </div>
 			</div>
 			<div class="row text-center userStats" ng-hide="toggleBoolean">
 				<div class="col-md-6">
@@ -33,7 +38,7 @@
 							</p>
 							<p>
 								<div style="font-size: 145%" class="userRankRank">Member since</div>
-								<div>September 25th, 2015</div>
+								<div>{{currentUser.dateOfSignUp}}</div>
 							</p>
 							<p>
 								<div style="font-size: 145%" class="userRankRank">Followers</div>
@@ -48,7 +53,7 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1 text-center">
 							<div style="display:inline-block; min-height:290px;" class="calendar">
-      							<datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+<!--      							<datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>-->
    							 </div>
 							<p class="userRank">
 								<div style="font-size: 145%" class="userRankRank">Total Shows</div>
@@ -88,90 +93,106 @@
 							<div class="accountInfo text-left" ng-show="accountInfoToggle3">
 								<div class="row">
 									<div class="col-md-12 text-right">
-										<button class="btn">Edit</button>
+										<button class="btn" ng-click="letsEditThis()">Edit</button>
 									</div>
 								</div>
+								<form ng-submit="editUserBasicInfo()">
 								<div class="row setBottomBorderBasicInfo">
 									<div class="col-md-4 basicInfo">
 										<span>Username</span>
 									</div>
-									<div class="col-md-7 col-md-offset-1 basicInfo">
-										<span class="blackText">jro55</span>
+									<div class="col-md-7 col-md-offset-1 basicInfo" ng-hide="editThis">
+										<span class="blackText">{{currentUser.userName}}</span>
 									</div>
+									<textarea class="fullWidth" type="text" ng-model="currentUser.userName" ng-show="editThis">
+                                        </textarea>
 								</div>
 								<div class="row setBottomBorderBasicInfo">
 									<div class="col-md-4 basicInfo">
-										<span>First Name</span>
+										<span>Name</span>
 									</div>
-									<div class="col-md-7 col-md-offset-1 basicInfo">
-										<span class="blackText">Josh</span>
+									<div class="col-md-7 col-md-offset-1 basicInfo" ng-hide="editThis">
+										<span class="blackText">{{currentUser.name}}</span>
 									</div>
-								</div>
-								<div class="row setBottomBorderBasicInfo">
-									<div class="col-md-4 basicInfo">
-										<span>Last Name</span>
-									</div>
-									<div class="col-md-7 col-md-offset-1 basicInfo">
-										<span class="blackText">Roman</span>
-									</div>
+									<textarea class="fullWidth" type="text" ng-model="currentUser.name" ng-show="editThis">
+                                        </textarea>
 								</div>
 								<div class="row setBottomBorderBasicInfo">
 									<div class="col-md-4 basicInfo">
 										<span>Email</span>
 									</div>
-									<div class="col-md-7 col-md-offset-1 basicInfo">
-										<span class="blackText">joshproman@yahoo.com</span>
+									<div class="col-md-7 col-md-offset-1 basicInfo" ng-hide="editThis">
+										<span class="blackText">{{currentUser.email}}</span>
 									</div>
+									<textarea class="fullWidth" type="text" ng-model="currentUser.email" ng-show="editThis">
+                                        </textarea>
 								</div>
 								<div class="row setBottomBorderBasicInfo">
 									<div class="col-md-4 basicInfo">
 										<span>Location</span>
 									</div>
-									<div class="col-md-7 col-md-offset-1 basicInfo">
-										<span class="blackText">Boulder, CO</span>
+									<div class="col-md-7 col-md-offset-1 basicInfo" ng-hide="editThis">
+										<span class="blackText">{{currentUser.location}}</span>
 									</div>
+									<textarea class="fullWidth" type="text" ng-model="currentUser.location" ng-show="editThis">
+                                        </textarea>
 								</div>
 								<div class="row setBottomBorderBasicInfo">
 									<div class="col-md-4 basicInfo">
 										<span>Gender</span>
 									</div>
-									<div class="col-md-7 col-md-offset-1 basicInfo">
-										<span class="blackText">Male</span>
+									<div class="col-md-7 col-md-offset-1 basicInfo" ng-hide="editThis">
+										<span class="blackText">{{currentUser.gender}}</span>
 									</div>
+									<textarea class="fullWidth" type="text" ng-model="currentUser.gender" ng-show="editThis">
+                                        </textarea>
 								</div>
 								<div class="row setBottomBorderBasicInfo" style="border-bottom: 0">
 									<div class="col-md-4 basicInfo">
-										<span>Birthday</span>
+										<span>Age</span>
 									</div>
-									<div class="col-md-7 col-md-offset-1 basicInfo">
-										<span class="blackText">October 29th, 1989</span>
+									<div class="col-md-7 col-md-offset-1 basicInfo" ng-hide="editThis">
+										<span class="blackText">25</span>
 									</div>
+									<textarea class="fullWidth" type="text" ng-model="currentUser.age" ng-show="editThis">
+                                        </textarea>
 								</div>
+                                <button type="submit" ng-show="editThis">Save</button>
+                                </form>
 							</div>
 							<div class="accountInfo text-left" ng-show="accountInfoToggle2">
 								<div class="row">
 									<div class="col-md-12 text-right">
-										<button class="btn">Edit</button>
+										<button class="btn" ng-click="letsEditThis()">Edit</button>
 									</div>
 								</div>
+                                <form ng-submit="editUserAboutYou()">
 								<div class="row">
 									<div class="col-md-12">
 										<div class="aboutYou">ABOUT YOU</div>
-										<div class="aboutYouParagraph">I grew up in the quaint little city of Houston, TX. From there I moved to the sunshine state of Louisiana where I enjoyed many years of binge drinking and deep deep depression. After graduating with a degree that I will never use, I finally made the best decision of my life and moved to beautiful Boulder Colorado!</div>
+										<div class="aboutYouParagraph" ng-hide="editThis">{{currentUser.bio}}</div>
+										<textarea class="fullWidth" type="text" ng-model="currentUser.bio" ng-show="editThis">
+                                        </textarea>
 									</div>
 								</div>
+<!--
 								<div class="row">
 									<div class="col-md-12">
 										<div class="aboutYou">NICK NAMES</div>
-										<div class="aboutYouParagraph">Roman Noodles, J RO, captain swole.</div>
+										<div class="aboutYouParagraph" ng-hide="editThis">Roman Noodles, J RO, captain swole.</div>
+                                        <textarea class="fullWidth" type="text" ng-model="currentUser.bio" ng-show="editThis"></textarea>
 									</div>
 								</div>
+-->
 								<div class="row">
 									<div class="col-md-12">
 										<div class="aboutYou">FAVORITE QUOTES</div>
-										<div class="aboutYouParagraph" style="padding-bottom: 15px">The worst thing I could be is just like everyone else, I would hate that.</div>
+										<div class="aboutYouParagraph" style="padding-bottom: 15px" ng-hide="editThis">{{currentUser.favoriteQuote}}.</div>
+                                        <textarea class="fullWidth" type="text" ng-model="currentUser.favoriteQuote" ng-show="editThis"></textarea>
 									</div>
 								</div>
+                                <button type="submit" ng-show="editThis">Save</button>
+                                </form>
 							</div>
 						</div>
 					</div>
