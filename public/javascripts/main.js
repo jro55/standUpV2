@@ -24,7 +24,17 @@ angular.module('myApp')
             .when('/hostashow', {
                 templateUrl : '/html/hostashow.html',
                 controller : 'mainController'  
-                })
+            })
+            .when('/profile/:userName', {
+                templateUrl : '/html/viewProfile.html',
+                controller : 'profileController'
+            })
+            .when('/viewshow/:host', {
+                templateUrl : '/html/viewShow.html',
+                controller : 'showController'
+            })
+            
+        
 			
 //			.otherwise({
 //				redirectTo : '/'
@@ -32,11 +42,18 @@ angular.module('myApp')
 
 	}])
 
+angular.module('myApp')
+    .controller("navController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
+        $scope.loggedIn = false;
+        
+        
+    }])
 
 angular.module('myApp')
-    .controller("mainController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
+    .controller("mainController", ['$scope', '$http', 'authService', '$location', function($scope, $http, authService, $location) {
         
 
+        
 
 	// -=-=-=-=-=- USER CONSTRUCTOR and several new test users -=-=-=-=-=-=-=-
 
@@ -165,14 +182,6 @@ angular.module('myApp')
 	$scope.clickCounter = 0
 	$scope.isTooManyLaughs = function() {
 		$scope.clicks.push(performance.now())
-		// console.log("Click counter: " + $scope.clickCounter)
-		// console.log("Length: " + $scope.clicks.length)
-		// console.log("First var: " + $scope.clicks[$scope.clickCounter - 1])
-		// console.log($scope.clicks[0])
-		// console.log("Second var: " + $scope.clicks[$scope.clickCounter - 9])
-		// console.log("Difference: " + $scope.clicks[$scope.clickCounter] - $scope.clicks[$scope.clickCounter - 9])
-		// console.log("-=-=-=-=-=-=-=-=-=-=-=-=-")
-
 		if ($scope.clickCounter <= 10) {
 			$scope.laughOMeter++
 			console.log($scope.clicks)
@@ -189,8 +198,10 @@ angular.module('myApp')
     $scope.users = []
     $http.get('/api/users')
         .then(function(returnData) {
-//            console.log(returnData.data[0])
-            $scope.users.push(returnData.data[0])
+            console.log(returnData.data)
+            $scope.users = returnData.data.sort(function(a, b){
+                return b.laughterPoints - a.laughterPoints
+            }) 
     })
     
 //    var user = 
@@ -205,11 +216,26 @@ angular.module('myApp')
 //                console.log(returnData)
 //        })
 //    }
-    
     authService.authCheck(function(user){
 			console.log('USER!', user)
 			$scope.currentUser = user
 		})
+    
+// Submit show click handler
+    $scope.submitShow = function() {
+        $http.post('/api/shows', {newHero: $scope.newShow, host: $scope.currentUser})
+            .then(function(returnData){
+            console.log("New Show: ", returnData)
+            $location.url('/userpage')
+        })
+    }
+    
+// Grabs the upcoming shows
+    $http.get('/api/getupcomingshows')
+        .then(function(returnData) {
+        console.log('Upcoming shows: ', returnData)
+        $scope.upcomingShows = returnData.data
+    })
 
 
 }])
@@ -276,13 +302,6 @@ angular.module('myApp')
         $scope.editThis = !$scope.editThis
     }
         
-    
-//     $scope.text02 = 'You will need to click the button to enable content editing before you can change this text.';
-//     $scope.editmode = false;
-//     $scope.toggleEditMode = function () {
-//         $scope.editmode = $scope.editmode === false ? true : false;
-//     }
-    
      $scope.editUserAboutYou = function() {
          $http.post('/api/users/edituseraboutyou', $scope.currentUser)
             .then(function(returnData){
@@ -299,30 +318,82 @@ angular.module('myApp')
          })
          $scope.editThis = false;
      }
+     
+     $http.get('/api/getupcomingshows')
+        .then(function(returnData) {
+        console.log('Upcoming shows: ', returnData)
+        $scope.upcomingShows = returnData.data
+    })
         
         
     }])
 
-//angular.module('myApp')
-//    .directive('contenteditable', [function() {
-//        require: "ngModel",
-//    link: function(scope, element, attrs, ngModel) {
-//
-//      function read() {
-//        ngModel.$setViewValue(element.html());
-//      }
-//
-//      ngModel.$render = function() {
-//        element.html(ngModel.$viewValue || "");
-//      };
-//
-//      element.bind("blur keyup change", function() {
-//        scope.$apply(read);
-//      });
-//    }
-//  };
-//    }])
 
+
+
+angular.module('myApp')
+    .controller("profileController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
+        var profileName = window.location.hash.split('/')[2]
+        console.log('What gets sliced: ', profileName)
+		$http.get('/api/users/' + profileName)
+			.then(function(returnData){
+                console.log('Return data: ', returnData.data)
+				$scope.userProfile = returnData.data
+			})
+        
+        authService.authCheck(function(user){
+            console.log('USER!', user)
+            $scope.currentUser = user
+    })
+        
+        
+    }])
+
+
+
+
+//-=-=-=-=-=-=-=-=- SHOW CONTROLLER -=-=-=-=-=-=-=-\\
+
+angular.module('myApp')
+    .controller("showController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
+        
+        var hostName = window.location.hash.split('/')[2]
+        console.log('What gets sliced: ', hostName)
+		$http.get('/api/shows/' + hostName)
+			.then(function(returnData){
+                console.log('Return data: ', returnData.data)
+				$scope.thisShow = returnData.data
+			})
+        
+        authService.authCheck(function(user){
+            console.log('USER!', user)
+            $scope.currentUser = user
+    })
+        
+    
+ 
+
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+    if (navigator.getUserMedia) {
+        var video = document.getElementById("videoElement");
+        navigator.getUserMedia({video: true}, handleVideo, videoError);
+    }
+
+    function handleVideo(stream) {
+        video.src = window.URL.createObjectURL(stream);
+    }
+
+    function videoError(e) {
+        console.log(e)
+    }
+        
+        
+        
+    
+        
+        
+    }])
 
 
 angular.module('myApp')

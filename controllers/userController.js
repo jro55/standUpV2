@@ -21,8 +21,17 @@ var updateBasicInfo = function(req, res) {
     })
 }
 
+var findUser = function(req, res) {
+    console.log('findUser : ', req.params)
+    User.findOne({userName: req.params.username}, function(err, doc) {
+        console.log(doc)
+        res.send(doc)
+    })
+}
+
 module.exports = {
     getAllUsers : getAllUsers,
     updateAboutYou : updateAboutYou,
     updateBasicInfo : updateBasicInfo,
+    findUser : findUser,
 }

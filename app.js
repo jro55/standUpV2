@@ -26,33 +26,40 @@ app.get('/', function(req, res){
   res.sendFile('standUpV2.html', {root: './public/html/'})
 });
 
-//app.get('/signup', function(req, res) {
-//    res.sendFile('signUp.html', {root: './'})
-//})
-//
-//app.get('/upcomingshows', function(req, res) {
-//    res.sendFile('upcomingShows.html', {root: './'})
-//})
-//
-app.get('/userpage/:user', function(req, res) {
-    res.sendFile('standUpV2.html', {root: './public/html/'})
-})
 
-app.get('/hostAShow', function(req, res) {
-    res.sendFile('standUpV2.html', {root: './public/html/'})
-})
+//app.get('/userpage/:user', function(req, res) {
+//    res.sendFile('standUpV2.html', {root: './public/html/'})
+//})
+//
+//app.get('/userpage', function(req, res){
+//    res.sendFile('standUpV2.html', {root: './public/html/'})
+//})
+//
+//app.get('/hostAShow', function(req, res) {
+//    res.sendFile('standUpV2.html', {root: './public/html/'})
+//})
+//
+//app.get('/#profile/:userName', function(req, res){ 
+//    res.sendFile('standUpV2.html', {root: './public/html/'})
+//})
 
 // User Routes \\
 var userCtrl = require('./controllers/userController.js')
 app.get('/api/users', userCtrl.getAllUsers)
 
-//app.get('/api/users/:username', CREATEFUNCTION)
+app.get('/api/users/:username', userCtrl.findUser)
 
 app.get('/api/me', function(req, res){
 	res.send(req.user)
 })
 app.post('/api/users/edituseraboutyou', userCtrl.updateAboutYou)
 app.post('/api/users/edituserbasicinfo', userCtrl.updateBasicInfo)
+
+var showCtrl = require('./controllers/showController.js')
+app.post('/api/shows', showCtrl.createShow)
+app.get('/api/getupcomingshows', showCtrl.grabShows)
+app.get('/api/shows/:hostname', showCtrl.findShow)
+
 
 
 require('./config/passport.js')

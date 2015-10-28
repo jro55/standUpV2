@@ -1,28 +1,36 @@
-<!DOCTYPE html>
-<html ng-app="myApp" lang ='en'>
-<head>
-	<title>Stand Up V2 View Profile</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+<style>
+#container { margin: 0px auto; width: 500px; height: 375px; border: 10px #333 solid; } #videoElement { width: 500px; height: 375px; background-color: #666; }
+</style>
 
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-</head>
-<body ng-controller="mainController">
-<div class="container-fluid viewShowBackground">
-<nav class="navbar navbar-inverse navbar-static-top viewShowNavbar" role="navigation">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="./userPage.html">Sign In</a></li>
-			<li><a href="#" class="glyphicon glyphicon-user"></a></li>
-		</ul>				
-	</div>
-</nav>
-<div class="container-fluid">
+
+<!--<div ng-if="currentUser.userName === thisShow.host">-->
+
+
+<div id="container">
+    <video autoplay="true" controls="true" id="videoElement">
+     
+    </video>
+</div>
+<cavas id="c"></cavas>
+<button id="grey">Toggle Greyness</button>
+
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+<!--//-=-=-=-=-=-=-=-=- AUDIENCE VIEW -=-=-=-=-=-=-=-=-\\-->
+<div ng-if="false">
 	<div class="row">
 		<div class="col-md-12 text-center performerHeader">
-			<h1>jro55</h1>
+			<h1>{{thisShow.host}}</h1>
 			<div>Ranked <a href="#">#8</a></div>
 		</div>
 	</div>
@@ -36,7 +44,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 liveFeed">
-			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Fc8WN3q4VKs" frameborder="0" allowfullscreen></iframe>
+<!--			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Fc8WN3q4VKs" frameborder="0" allowfullscreen></iframe>-->
 		</div>
 	</div>
 	<div class="row">
@@ -69,7 +77,5 @@
 </div>
 
 
-<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
-<script src="/javascripts/main.js" type="text/javascript"></script>
-</body>
-</html>
+	
+

@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html ng-app="myApp" lang ='en'>
 <head>
@@ -18,17 +19,18 @@
 		</ul>				
 	</div>
 </nav>
-<div class="container-fluid userPageBackground">
-	<div class="row">
+-->
+<!--<div class="container-fluid userPageBackground">-->
+	<div class="row" style='margin-top: 70px'>
 		<div class="col-md-8 col-md-offset-2 userPageBackgroundInner">
 			<div class="row">
 				<div class="col-md-12 text-center welcomeText">
 					<div class="circleAndrew"></div>
-					<h1>Andrew Roman</h1>
-					<h5 style="color: #F38630">LightsCameraAction</h5>
+					<h1>{{userProfile.name}}</h1>
+					<h5 style="color: #F38630">{{userProfile.userName}}</h5>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<p>The very existence of flamethrowers proves that sometime, somewhere, someone said to themselves, 'You konw, I want ot set those people over there on fire, but I'm just not close enough to get the job done.'</p>
+							<p>The very existence of flamethrowers proves that sometime, somewhere, someone said to themselves, 'You know, I want ot set those people over there on fire, but I'm just not close enough to get the job done.'</p>
 							<p class="text-right">- George Carlin</p>
 						</div>
 					</div>
@@ -51,11 +53,11 @@
 					<div class="row">
 						<div class="col-md-12 bio">
 							<h4>Bio</h4>
-							<p>Comedy has been my entire laugh since I can remember. When I was just a baby I started my career making my mom laugh. Then when I entered school my teachers and classmates can a taste of my humor. Now it is time to let the whole world hear my jokes.</p>
+							<p>{{userProfile.bio}}</p>
 						</div>
 						<div class="col-md-12 bio">
 							<h4>Favorite Quotes</h4>
-							<p>Laugh laugh and laugh some more.</p>
+							<p>{{userProfile.favoriteQuote}}</p>
 						</div>
 						<div class="col-md-12 bio" style="margin-bottom: 20px">
 							<h4>Nick Names</h4>
@@ -73,23 +75,15 @@
 								<span>Username</span>
 							</div>
 							<div class="col-md-7 col-md-offset-1 basicInfo">
-								<span class="blackText">LightsCameraAction</span>
+								<span class="blackText">{{userProfile.userName}}</span>
 							</div>
 						</div>
 						<div class="row setBottomBorderBasicInfo">
 							<div class="col-md-4 basicInfo">
-								<span>First Name</span>
+								<span>Name</span>
 							</div>
 							<div class="col-md-7 col-md-offset-1 basicInfo">
-								<span class="blackText">Andrew</span>
-							</div>
-						</div>
-						<div class="row setBottomBorderBasicInfo">
-							<div class="col-md-4 basicInfo">
-								<span>Last Name</span>
-							</div>
-							<div class="col-md-7 col-md-offset-1 basicInfo">
-								<span class="blackText">Roman</span>
+								<span class="blackText">{{userProfile.name}}</span>
 							</div>
 						</div>
 						<div class="row setBottomBorderBasicInfo">
@@ -97,7 +91,7 @@
 								<span>Email</span>
 							</div>
 							<div class="col-md-7 col-md-offset-1 basicInfo">
-								<span class="blackText">andrew@gmail.com</span>
+								<span class="blackText">{{userProfile.email}}</span>
 							</div>
 						</div>
 						<div class="row setBottomBorderBasicInfo">
@@ -105,7 +99,7 @@
 								<span>Location</span>
 							</div>
 							<div class="col-md-7 col-md-offset-1 basicInfo">
-								<span class="blackText">Austin, TX</span>
+								<span class="blackText">{{userProfile.location}}</span>
 							</div>
 						</div>
 						<div class="row setBottomBorderBasicInfo">
@@ -113,15 +107,15 @@
 								<span>Gender</span>
 							</div>
 							<div class="col-md-7 col-md-offset-1 basicInfo">
-								<span class="blackText">Male</span>
+								<span class="blackText">{{userProfile.gender}}</span>
 							</div>
 						</div>
 						<div class="row setBottomBorderBasicInfo" style="border-bottom: 0">
 							<div class="col-md-4 basicInfo">
-								<span>Birthday</span>
+								<span>Age</span>
 							</div>
 							<div class="col-md-7 col-md-offset-1 basicInfo">
-								<span class="blackText">February 22nd, 1995</span>
+								<span class="blackText">{{userProfile.age}}</span>
 							</div>
 						</div>
 					</div>
@@ -135,12 +129,3 @@
 		</div>
 	</div>
 
-
-
-</div>
-
-
-<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
-<script src="/javascripts/main.js" type="text/javascript"></script>
-</body>
-</html>

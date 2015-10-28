@@ -19,29 +19,36 @@
 
 <div class="row">
     <div class="col-md-6 col-md-offset-1">
-        <form ng-submit="createShow()">
+        <form ng-submit="submitShow()">
+<!--
+            <div class="input-group bootstrap-timepicker timepicker"><label>Time</label>
+            <input id="timepicker1" type="text" class="form-control input-small">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+        </div>
+--> 
             <div class="form-group">
                 <label>Time</label>
-                <input type="text" class="form-control" placeholder="Time">
+                <input ng-model="newShow.time" type="text" class="form-control" placeholder="Time">
             </div>
             <div class="form-group">
                 <label>Date</label>
-                <input type="text" class="form-control" placeholder="Date">
+                <input ng-model="newShow.date" type="text" class="form-control" placeholder="Date">
             </div>
             <div class="form-group">
                 <label>Topic</label>
-                <input type="text" class="form-control" placeholder="Topic">
+                <input ng-model="newShow.topic" type="text" class="form-control" placeholder="Topic">
             </div>
             <div class="form-group">
-                <label>Duration</label><br>
-	        	<select name="state" class="form-control">
+                <label>Duration (min)</label><br>
+	        	<select ng-model="newShow.duration" class="form-control">
 	            <option value="3">3</option>
 	            <option value="4">4</option>
 	            <option value="5">5</option>
 	            <option value="6">6</option>
 	            <option value="7">7</option>
 	        	</select>
-                <button type="submit" class="btn btn-default submitInfo" ng-click="submitInfo()">Submit</button>
+                <button type="submit" class="btn btn-default submitInfo">Submit</button>
             </div>
         </form>
     </div>
+    

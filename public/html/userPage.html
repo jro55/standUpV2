@@ -34,7 +34,7 @@
 							<p class="userRank">
 								<div style="font-size: 145%" class="userRankRank">Rank</div>
 								<div>You are ranked <a href="#">45th</a> out of <a href="#">784</a>.</div>
-								<div>Laugh-O meter is at <a href="#">485</a>! Great job, keep it up!</div>
+								<div>Laugh-O meter is at <a href="#">{{currentUser.laughterPoints}}</a>! Great job, keep it up!</div>
 							</p>
 							<p>
 								<div style="font-size: 145%" class="userRankRank">Member since</div>
@@ -81,9 +81,9 @@
 						<div class="col-md-10 col-md-offset-1 text-left">
 							<div class="accountInfo" ng-show="accountInfoToggle1">
 								<div style="font-size: 145%" class="userRankRank accountInfoDetails">What you go by</div>
-								<div>jro55</div>
+								<div>{{currentUser.userName}}</div>
 								<div style="font-size: 145%" class="userRankRank accountInfoDetails">Member since</div>
-								<div>September 25th, 2015</div>
+								<div>{{currentUser.dateOfSignUp}}</div>
 								<div style="font-size: 145%" class="userRankRank accountInfoDetails">Following</div>
 								<div>Will Roman</div>
 								<div>Joe Lewis</div>
@@ -187,7 +187,7 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="aboutYou">FAVORITE QUOTES</div>
-										<div class="aboutYouParagraph" style="padding-bottom: 15px" ng-hide="editThis">{{currentUser.favoriteQuote}}.</div>
+										<div class="aboutYouParagraph" style="padding-bottom: 15px" ng-hide="editThis">{{currentUser.favoriteQuote}}</div>
                                         <textarea class="fullWidth" type="text" ng-model="currentUser.favoriteQuote" ng-show="editThis"></textarea>
 									</div>
 								</div>
@@ -205,21 +205,21 @@
 					</div>
 					<div class="row scrollComedyRoll">
 						<div class="col-sm-12 col-md-12">
-							<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingPerformances">
+							<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingShows">
 								<span class="col-sm-2 col-md-2 iconImageContainer">
 									<img ng-src="{{performance.icon}}" class="iconImage">
 								</span>
 								<span class="col-sm-3 col-md-2 text-left paddingTop">
-									<span class="performanceUserName">{{performance.userName}}</span>
+									<span class="performanceUserName">{{performance.host}}</span>
 									<div class="performanceTime">{{performance.duration}} min</div>
 									<div>
 										<button class="watchButton">Watch</button>
 									</div>
 								</span>
 								<span class="col-sm-7 col-md-8 performanceCategory">
-									{{performance.category}}
+									{{performance.topic}}
 									<div class="performanceViewers">
-										29 Viewers - Ranked 129th
+										{{performance.numberOfViewers}} Viewers - Ranked {{performance.hostRating}}
 									</div>
 								</span>
 							</div>

@@ -7,6 +7,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-route.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	
 <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
 type="text/javascript"></script>
 
@@ -38,10 +39,10 @@ google.setOnLoadCallback(load);
 		<div class="container-fluid">
             <div class="hoverEffects"><a class="navbar-brand" href="/#/" style="color: white">StandUp</a></div>
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-click="letsSignIn()" class="hoverEffects"><a href="/auth/facebook" style="color: white">Sign In</a></li>
+				<li ng-hide="loggedIn" ng-click="toggleSignIn()" class="hoverEffects"><a href="/auth/facebook" style="color: white">Sign In</a></li>
 				<li class="hoverEffects"><a href="/#signup" style="color: white">Register</a></li>
 				<li class="hoverEffects"><a href="#" style="color: white">About</a></li>
-				<li class="hoverEffects"><a href="/#userpage/{{}}" style="color: white">My Account</a></li>
+				<li class="hoverEffects"><a href="/#userpage/{{currentUser.userName}}" style="color: white">My Account</a></li>
 			</ul>				
 		</div>
 	</nav>
@@ -55,6 +56,7 @@ google.setOnLoadCallback(load);
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap.min.js" type="text/javascript"></script>
+<script src='//static.opentok.com/v2/js/opentok.min.js'></script>
 <script src="/javascripts/main.js" type="text/javascript"></script>
 </body>
 </html>
