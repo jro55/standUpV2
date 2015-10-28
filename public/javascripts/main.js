@@ -400,6 +400,8 @@ angular.module('myApp')
             session.subscribe(event.stream, 'subscribersDiv', {insertMode: 'append'}); 
   }
 });
+    
+    if ($scope.currentUser === $scope.thisShow.host) {    
     session.connect(token, function(error) {
         if (error) {
             console.log(error.message);
@@ -407,6 +409,7 @@ angular.module('myApp')
             session.publish('myPublisherDiv', {width: 320, height: 240});
         }
     });
+    }
         
         
         
