@@ -6,6 +6,7 @@
 <!--<div ng-if="currentUser.userName === thisShow.host">-->
 
 
+<!--
 <div id="container">
     <video autoplay="true" controls="true" id="videoElement">
      
@@ -13,13 +14,16 @@
 </div>
 <cavas id="c"></cavas>
 <button id="grey">Toggle Greyness</button>
+-->
 
 <!--</div>-->
 
+<div ng-if="currentUser.userName === thisShow.host">
+<div id='myPublisherDiv'></div> 
+</div>
 
 
-
-
+<div id='subscribersDiv'></div>
 
 
 
@@ -27,7 +31,7 @@
 
 
 <!--//-=-=-=-=-=-=-=-=- AUDIENCE VIEW -=-=-=-=-=-=-=-=-\\-->
-<div ng-if="false">
+<div ng-if="currentUser.userName !== thisShow.host">
 	<div class="row">
 		<div class="col-md-12 text-center performerHeader">
 			<h1>{{thisShow.host}}</h1>

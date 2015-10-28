@@ -389,8 +389,25 @@ angular.module('myApp')
     }
         
         
+//    TOKBOX STUFF
+    var apiKey = 45390942;
+    var sessionId = '1_MX40NTM5MDk0Mn5-MTQ0NjA1MTcwOTE5NH5SYmRwVU9rbnd5cS9lWk5ZUkVTSEFuK3N-UH4';
+    var session = OT.initSession(apiKey, sessionId);
         
-    
+    var token = 'T1==cGFydG5lcl9pZD00NTM5MDk0MiZzaWc9OThhZDliNzhkNWFiNzg1NGZjNDc0ODU4MGQzMmZmNmM0NWZhMTVmZjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UTTVNRGswTW41LU1UUTBOakExTVRjd09URTVOSDVTWW1Sd1ZVOXJibmQ1Y1M5bFdrNVpVa1ZUU0VGdUszTi1VSDQmY3JlYXRlX3RpbWU9MTQ0NjA1MTk4MCZub25jZT0wLjUyNDkzNDA5NTgyMDA0NTImZXhwaXJlX3RpbWU9MTQ0NjEzODM4MA==';
+    session.on({
+        streamCreated: function(event) { 
+            session.subscribe(event.stream, 'subscribersDiv', {insertMode: 'append'}); 
+  }
+});
+    session.connect(token, function(error) {
+        if (error) {
+            console.log(error.message);
+        } else {
+            session.publish('myPublisherDiv', {width: 320, height: 240});
+        }
+    });
+        
         
         
     }])
