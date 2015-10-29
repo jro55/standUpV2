@@ -21,11 +21,11 @@
 </nav>
 -->
 <!--<div class="container-fluid userPageBackground">-->
-	<div class="row" style='margin-top: 70px'>
+	<div class="row" style='margin-top: 50px; background-color: #F9F9F9; padding-bottom: 70px'>
 		<div class="col-md-8 col-md-offset-2 userPageBackgroundInner">
 			<div class="row">
 				<div class="col-md-12 text-center welcomeText">
-					<div class="circleAndrew"></div>
+					<div class="circleAndrew" style="background-image: url('{{userProfile.photoUrl}}')"></div>
 					<h1>{{userProfile.name}}</h1>
 					<h5 style="color: #F38630">{{userProfile.userName}}</h5>
 					<div class="row">
@@ -114,7 +114,7 @@
 							<div class="col-md-4 basicInfo">
 								<span>Age</span>
 							</div>
-							<div class="col-md-7 col-md-offset-1 basicInfo">
+							<div class="col-md-7 col-md-offset-1 basicInfo" style="margin-bottom: 15px">
 								<span class="blackText">{{userProfile.age}}</span>
 							</div>
 						</div>

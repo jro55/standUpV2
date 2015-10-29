@@ -9,6 +9,7 @@ var showSchema = mongoose.Schema({
     showRating      : Number,
     numberOfViewers : Number,
     comments        : Array,
+    userPhotoUrl    : String,
 })
 
 var Show = mongoose.model('show', showSchema)

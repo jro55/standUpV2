@@ -12,6 +12,7 @@ var createShow = function(req, res) {
         showRating      : 0,
         numberOfViewers : 0,
         comments        : [],
+        userPhotoUrl    : req.body.host.photoUrl,
     })
     
     newShow.save(function(err, doc) {
@@ -34,9 +35,20 @@ var findShow = function(req, res) {
     })
 }
 
+var addComment = function(req, res) {
+    console.log('Data: ', req.params)
+}
+
+var getMyShows = function(req, res) {
+    Shows.find({host: req.params.hostname}, function(err, doc) {
+        res.send(doc)
+    })
+}
+
 
 module.exports = {
     createShow : createShow,
-    grabShows : grabShows,
-    findShow : findShow,
+    grabShows  : grabShows,
+    findShow   : findShow,
+    addComment : addComment,
 }

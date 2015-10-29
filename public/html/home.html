@@ -41,7 +41,7 @@
 				<div class="col-md-12">
 					<div class="row comedyRollPerformers" ng-repeat="(performer, performance) in upcomingShows">
 						<span class="col-sm-2 col-md-2 iconImageContainer">
-<!--							<img ng-src="{{performance.icon}}" class="iconImage">-->
+							<img ng-src="{{performance.userPhotoUrl}}" class="iconImage">
 						</span>
 						<span class="col-sm-3 col-md-3 text-left paddingTop">
 							<span class="performanceUserName">{{performance.host}}</span>
@@ -68,7 +68,7 @@
 								<li ng-repeat="user in users">
 									<div class="row">
 										<div class="col-sm-3 col-md-3">
-											<img ng-src="{{image}}" class="iconImageTopShows">
+											<img ng-src="{{user.photoUrl}}" class="iconImageTopShows">
 										</div>
 										<div class="col-sm-4 col-md-4 text-left performanceName">
                                             <a href="/#profile/{{user.userName}}"><span>{{user.userName}}</span></a>

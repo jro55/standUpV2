@@ -59,6 +59,8 @@ var showCtrl = require('./controllers/showController.js')
 app.post('/api/shows', showCtrl.createShow)
 app.get('/api/getupcomingshows', showCtrl.grabShows)
 app.get('/api/shows/:hostname', showCtrl.findShow)
+app.post('/api/show/comments', showCtrl.addComment)
+//app.post('/api/getyourshows', showCtrl.getMyShows)
 
 
 
@@ -93,6 +95,44 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
+
+var io = require("socket.io")
+var socketServer = io(app.server)
+
+// socket servers can proactively emit messages for no reason!
+// setInterval(function(){socketServer.emit('chatMessage',{content:'hi!'})},400)
+
+// the `socket` object in the callback function represents the socket connection for a single user.
+socketServer.use(function(socket, next){
+    
+})
+socketServer.on("connection", function(socket){
+    console.log('someone connected!')
+
+    socket.join('super cool room')
+
+    socket.on('myAwesomeCustomEvent', function(data){
+        console.log(data)
+        socketServer.emit('myAwesomeCustomEvent', data) // sends message to everyone
+        socketServer.to('super cool room').emit('myAwesomeCustomEvent', data)
+    })
+
+
+    socket.on('disconnect', function(){
+        console.log('someone disconnected')
+    })
+
+
+
+})
+
+
+
+
+
+
+
+
 
 // App ID and App Secret for Facebook Log in
 //1487932484869129 

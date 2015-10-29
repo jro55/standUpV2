@@ -6,7 +6,7 @@ var User = require('../models/userModel.js')
 passport.use(new FacebookStrategy({
         clientID: '1487932484869129',
         clientSecret: '4470fc8237698e60a96998383c899a1f',
-        callbackURL: "http://159.203.106.140:3000/auth/facebook/callback",
+        callbackURL: "http://192.168.173.238:3000/auth/facebook/callback",
         enableProof: false
     },
     function (accessToken, refreshToken, profile, done) {
@@ -22,20 +22,21 @@ passport.use(new FacebookStrategy({
             console.log(accessToken, refreshToken, profile, done)
             
             var user = new User({
-                name: profile.displayName,
-                userName: profile.displayName,
-                location: '',
-                bio: '',
-                facebookId: profile.id,
-                laughterPoints: 0,
-                dateOfSignUp: new Date(),
-                nickNames: '',
-                favoriteQuote: '',
-                following: [],
-                numberOfPerformances: 0,
-                gender: '',
-                age: 0,
-                email: '',
+                name                 : profile.displayName,
+                userName             : profile.displayName,
+                location             : '',
+                bio                  : '',
+                facebookId           : profile.id,
+                laughterPoints       : 0,
+                dateOfSignUp         : new Date(),
+                nickNames            : '',
+                favoriteQuote        : '',
+                following            : [],
+                numberOfPerformances : 0,
+                gender               : '',
+                age                  : 0,
+                email                : '',
+                photoUrl             : '',
             })
             
             user.save(function(err) {

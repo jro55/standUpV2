@@ -19,11 +19,12 @@
 <!--</div>-->
 
 <div ng-if="currentUser.userName === thisShow.host">
-<div id='myPublisherDiv'></div> 
+<div id='myPublisherDiv'></div>
+<button ng-click="countdown()">Start Show</button> 
 </div>
 
 
-<div id='subscribersDiv'></div>
+
 
 
 
@@ -35,12 +36,13 @@
 	<div class="row">
 		<div class="col-md-12 text-center performerHeader">
 			<h1>{{thisShow.host}}</h1>
-			<div>Ranked <a href="#">#8</a></div>
+			<div>Ranked <a href="#">#8</a>               </div>
+			<button ng-click="countdown()">Start Timer</button>
 		</div>
 	</div>
 	<div class="row performerDetails">
 		<div class="col-md-4 col-md-offset-2 text-left">
-			Josh Roman
+			{{min}}:{{sec}}
 		</div>
 		<div class="col-md-4 text-right">
 			Laugh-O Meter: <a href="#">{{laughOMeter}}</a>
@@ -48,7 +50,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 liveFeed">
-<!--			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Fc8WN3q4VKs" frameborder="0" allowfullscreen></iframe>-->
+            <div id='subscribersDiv'></div>
 		</div>
 	</div>
 	<div class="row">

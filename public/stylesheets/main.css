@@ -114,15 +114,18 @@ body {
 
 .comedyRollPerformers {
 	 border-radius: 3px;
-	 background-color: #9ee8f7;
+	 background-color: rgba(158, 222, 257, .3);
 	 margin-top: 10px;
+     height: 65px;
 }
 
 .iconImage {
 	/*padding: 0;*/
-	width: 100%;
-	height: 70px;
+	width: 84%;
+	height: 65px;
 	border-radius: 3px 0 0 3px;
+    position: absolute;
+    left: 0;
 }
 
 
@@ -131,7 +134,7 @@ body {
 }
 
 .paddingTop {
-	padding-top: 10px;
+	padding-top: 3px;
 }
 
 .performanceTime {
@@ -140,7 +143,7 @@ body {
 }
 
 .scrollComedyRoll {
-	overflow-y: auto;
+	overflow-y: hidden;
 	height: 318px;
 }
 
@@ -330,6 +333,7 @@ body {
 	border: 2px solid #ccc;
 	border-top: 3px solid #69d2e7;
 	border-radius: 5px;
+    box-shadow: 5px 5px 10px #888888;
 }
 
 .userToggle {
@@ -351,7 +355,6 @@ body {
 	border-radius: 50%;
 	height: 100px;
 	width: 100px;
-	background-image: url('https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfl1/v/t1.0-9/11988229_10207324154573256_7340333197716189372_n.jpg?oh=2f728cd41a1d40ae41903338cb9212b3&oe=569C5CE6');
 	background-position: center;
 	background-size: cover;
 	margin: auto;
@@ -616,14 +619,13 @@ body {
 	border-radius: 50%;
 	height: 100px;
 	width: 100px;
-	background-image: url('https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpf1/v/t1.0-9/1897929_10201625677271516_621722271_n.jpg?oh=9224be9a6edc777c3b3441b5bc77d6bc&oe=56A72099');
 	background-position: center;
 	background-size: cover;
 	margin: auto;
 }
 
 .userPageFooter {
-	margin-top: 100px;
+	
 }
 
 

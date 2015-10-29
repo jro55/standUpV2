@@ -45,6 +45,12 @@ angular.module('myApp')
 angular.module('myApp')
     .controller("navController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
         $scope.loggedIn = false;
+        authService.authCheck(function(user){
+            console.log('USER!', user)
+            if (user) {
+                $scope.loggedIn = true;
+            }
+    })
         
         
     }])
@@ -161,10 +167,10 @@ angular.module('myApp')
 
 	$scope.comments = []
 
-	$scope.submitYourComment = function() {
-		$scope.comments.push("jro55: " + $scope.yourComment)
-		$scope.yourComment = ""
-	}
+//	$scope.submitYourComment = function() {
+//		$scope.comments.push("jro55: " + $scope.yourComment)
+//		$scope.yourComment = ""
+//	}
 
 	$scope.signInToggle = false;
 	$scope.letsSignIn = function() {
@@ -239,6 +245,10 @@ angular.module('myApp')
 
 
 }])
+
+
+
+//-=-=-=-=-=-=-=-=- userPageController -=-=-=-=-=-=-=-=-=-\\
 
 angular.module('myApp')
     .controller("userPageController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
@@ -324,6 +334,11 @@ angular.module('myApp')
         console.log('Upcoming shows: ', returnData)
         $scope.upcomingShows = returnData.data
     })
+     
+//     $http.post('/api/getyourshows', $scope.currentUser)
+//        .then(function(returnData) {
+//         $scope.yourShows = returnData.data
+//     })
         
         
     }])
@@ -355,14 +370,40 @@ angular.module('myApp')
 //-=-=-=-=-=-=-=-=- SHOW CONTROLLER -=-=-=-=-=-=-=-\\
 
 angular.module('myApp')
-    .controller("showController", ['$scope', '$http', 'authService', function($scope, $http, authService) {
+    .controller("showController", ['$scope', '$http', 'authService', '$timeout', function($scope, $http, authService, $timeout) {
         
+        
+                var apiKey = 45390942;
+                var sessionId = '1_MX40NTM5MDk0Mn5-MTQ0NjA1MTcwOTE5NH5SYmRwVU9rbnd5cS9lWk5ZUkVTSEFuK3N-UH4';
+                var session = OT.initSession(apiKey, sessionId);
+                
+        
+                var token = 'T1==cGFydG5lcl9pZD00NTM5MDk0MiZzaWc9OThhZDliNzhkNWFiNzg1NGZjNDc0ODU4MGQzMmZmNmM0NWZhMTVmZjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UTTVNRGswTW41LU1UUTBOakExTVRjd09URTVOSDVTWW1Sd1ZVOXJibmQ1Y1M5bFdrNVpVa1ZUU0VGdUszTi1VSDQmY3JlYXRlX3RpbWU9MTQ0NjA1MTk4MCZub25jZT0wLjUyNDkzNDA5NTgyMDA0NTImZXhwaXJlX3RpbWU9MTQ0NjEzODM4MA==';
         var hostName = window.location.hash.split('/')[2]
         console.log('What gets sliced: ', hostName)
 		$http.get('/api/shows/' + hostName)
 			.then(function(returnData){
                 console.log('Return data: ', returnData.data)
 				$scope.thisShow = returnData.data
+                $scope.counter = returnData.data.time * 60
+                
+                
+                console.log($scope.currentUser, $scope.thisShow.host)
+   
+                session.connect(token, function(error) {
+                if (error) {
+                    console.log(error.message);
+                } else {
+                    session.publish('myPublisherDiv');
+                }
+            });
+        
+            session.on({
+                streamCreated: function(event) { 
+                session.subscribe(event.stream, 'subscribersDiv', {height: "100%", width: "100%"}); 
+  }
+});
+
 			})
         
         authService.authCheck(function(user){
@@ -370,50 +411,114 @@ angular.module('myApp')
             $scope.currentUser = user
     })
         
+        
+        $scope.sec = '0' + 0;
+        $scope.min = 0;
+        $scope.counter = $scope.min * 60;
+
+        var stopped;
+        var audio = new Audio('ding.mp3');
+        console.log(parseInt($scope.counter))
+
+
+        
+//        $scope.counter = 5 * 60;
+        $scope.sec = '0' + 0
+        
+
+        $scope.countdown = function () {
+            $scope.durationDisappear = true;
+            stopped = $timeout(function () {
+                console.log($scope.counter);
+                $scope.counter--;
+                $scope.countdown();
+            }, 1000);
+            $scope.min = (($scope.counter / 60) - ($scope.counter % 60 / 60))
+            if ($scope.min < 10) {
+                $scope.min = '0' + $scope.min
+            }
+            $scope.sec = $scope.counter % 60
+            if ($scope.sec < 10) {
+                $scope.sec = '0' + $scope.sec
+            }
+
+            if ($scope.counter == 0) {
+                $timeout.cancel(stopped)
+                audio.play();
+            }
+
+        };
+
+        $scope.stop = function () {
+            $scope.counter = 0;
+            $scope.min = '0' + 0;
+            $scope.sec = '0' + 0;
+            $timeout.cancel(stopped);
+            $scope.durationDisappear = false;
+        }
+
+        $scope.pause = function () {
+            $timeout.cancel(stopped);
+
+        }
+        
+        $scope.submitYourComment = function() {
+		$http.post('/api/show/comments', $scope.yourComment)
+            .then(function(returnData) {
+                console.log(returnData.data)
+		        $scope.yourComment = ""    
+            })
+	    }
+        
+
+}]);
+        
     
  
 
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
-
-    if (navigator.getUserMedia) {
-        var video = document.getElementById("videoElement");
-        navigator.getUserMedia({video: true}, handleVideo, videoError);
-    }
-
-    function handleVideo(stream) {
-        video.src = window.URL.createObjectURL(stream);
-    }
-
-    function videoError(e) {
-        console.log(e)
-    }
-        
+//    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+//
+//    if (navigator.getUserMedia) {
+//        var video = document.getElementById("videoElement");
+//        navigator.getUserMedia({video: true}, handleVideo, videoError);
+//    }
+//
+//    function handleVideo(stream) {
+//        video.src = window.URL.createObjectURL(stream);
+//    }
+//
+//    function videoError(e) {
+//        console.log(e)
+//    }
+//        
         
 //    TOKBOX STUFF
-    var apiKey = 45390942;
-    var sessionId = '1_MX40NTM5MDk0Mn5-MTQ0NjA1MTcwOTE5NH5SYmRwVU9rbnd5cS9lWk5ZUkVTSEFuK3N-UH4';
-    var session = OT.initSession(apiKey, sessionId);
-        
-    var token = 'T1==cGFydG5lcl9pZD00NTM5MDk0MiZzaWc9OThhZDliNzhkNWFiNzg1NGZjNDc0ODU4MGQzMmZmNmM0NWZhMTVmZjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UTTVNRGswTW41LU1UUTBOakExTVRjd09URTVOSDVTWW1Sd1ZVOXJibmQ1Y1M5bFdrNVpVa1ZUU0VGdUszTi1VSDQmY3JlYXRlX3RpbWU9MTQ0NjA1MTk4MCZub25jZT0wLjUyNDkzNDA5NTgyMDA0NTImZXhwaXJlX3RpbWU9MTQ0NjEzODM4MA==';
-    session.on({
-        streamCreated: function(event) { 
-            session.subscribe(event.stream, 'subscribersDiv', {insertMode: 'append'}); 
-  }
-});
-    
+//    var apiKey = 45390942;
+//    var sessionId = '1_MX40NTM5MDk0Mn5-MTQ0NjA1MTcwOTE5NH5SYmRwVU9rbnd5cS9lWk5ZUkVTSEFuK3N-UH4';
+//    var session = OT.initSession(apiKey, sessionId);
+//        
+//    var token = 'T1==cGFydG5lcl9pZD00NTM5MDk0MiZzaWc9OThhZDliNzhkNWFiNzg1NGZjNDc0ODU4MGQzMmZmNmM0NWZhMTVmZjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UTTVNRGswTW41LU1UUTBOakExTVRjd09URTVOSDVTWW1Sd1ZVOXJibmQ1Y1M5bFdrNVpVa1ZUU0VGdUszTi1VSDQmY3JlYXRlX3RpbWU9MTQ0NjA1MTk4MCZub25jZT0wLjUyNDkzNDA5NTgyMDA0NTImZXhwaXJlX3RpbWU9MTQ0NjEzODM4MA==';
+//    session.on({
+//        streamCreated: function(event) { 
+//            session.subscribe(event.stream, 'subscribersDiv'); 
+//  }
+//});
+//    
 //    if ($scope.currentUser === $scope.thisShow.host) {    
-    session.connect(token, function(error) {
-        if (error) {
-            console.log(error.message);
-        } else {
-            session.publish('myPublisherDiv', {width: 320, height: 240});
-        }
-    });
+//    session.connect(token, function(error) {
+//        if (error) {
+//            console.log(error.message);
+//        } else {
+//            session.publish('myPublisherDiv', {width: 320, height: 240});
+//        }
+//    });
 //    }
         
+    
         
         
-    }])
+        
+//    }])
 
 
 angular.module('myApp')

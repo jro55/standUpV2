@@ -11,7 +11,7 @@
 		<div class="col-md-8 userPageBackgroundInner">
 			<div class="row">
 				<div class="col-md-12 text-center welcomeText">
-					<div class="circle"></div>
+					<div class="circle" style="background-image: url('{{currentUser.photoUrl}}')"></div>
 					<h1>Welcome, {{currentUser.userName}}</h1>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
@@ -53,6 +53,7 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1 text-center">
 							<div style="display:inline-block; min-height:290px;" class="calendar">
+							     {{yourShows}}
 <!--      							<datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>-->
    							 </div>
 							<p class="userRank">
@@ -152,7 +153,7 @@
 										<span>Age</span>
 									</div>
 									<div class="col-md-7 col-md-offset-1 basicInfo" ng-hide="editThis">
-										<span class="blackText">25</span>
+										<span class="blackText">{{currentUser.age}}</span>
 									</div>
 									<textarea class="fullWidth" type="text" ng-model="currentUser.age" ng-show="editThis">
                                         </textarea>
@@ -207,7 +208,7 @@
 						<div class="col-sm-12 col-md-12">
 							<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingShows">
 								<span class="col-sm-2 col-md-2 iconImageContainer">
-									<img ng-src="{{performance.icon}}" class="iconImage">
+									<img ng-src="{{performance.userPhotoUrl}}" class="iconImage">
 								</span>
 								<span class="col-sm-3 col-md-2 text-left paddingTop">
 									<span class="performanceUserName">{{performance.host}}</span>
