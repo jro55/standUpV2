@@ -134,7 +134,7 @@ body {
 }
 
 .paddingTop {
-	padding-top: 3px;
+	padding-top: 12px;
 }
 
 .performanceTime {
@@ -611,8 +611,8 @@ body {
 
 .iconImage2 {
 	padding: 0;
-	width: 80px;
-	height: 80px;
+	width: 65px;
+	height: 65px;
 }
 
 .circleAndrew {
@@ -813,4 +813,12 @@ body {
 
 .fullWidth {
     width: 100%;
+}
+
+
+
+.styleThis {
+    font-size: 120%;
+    font-style: strong;
+    margin-top: 10px;
 }

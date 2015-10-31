@@ -1,29 +1,3 @@
-<!--<div class="container-fluid">-->
-<!-- <div class="row">
-		<div class="col-md-12 navbarUserPage">
-			<div class="row">
-				<div class="col-md-2 col-md-offset-1 navbarStandUp">
-					<span><a href="file:///Users/student/projects/standUpV2/standUpV2.html#">StandUp</a>	</span>
-				</div>
-				<div class="col-md-2 col-md-offset-7 navbarRightIcons">
-					<a href="#"><span class="glyphicon glyphicon-search"> </span></a>
-					<a href="file:///Users/student/projects/standUpV2/userPage.html"><span class="glyphicon glyphicon-user"></span></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
-<!--
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="./standUpV2.html#">StandUp</a>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./userPage.html">Sign In</a></li>
-				<li><a href="./userPage.html" class="glyphicon glyphicon-user"></a></li>
-			</ul>				
-		</div>
-	</nav>
--->
 <div class="container-fluid userPageBackground">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 userPageBackgroundInner">
@@ -44,17 +18,17 @@
 					<div class="row thisWeek" ng-show="accountInfoToggle1">
 						<div class="col-md-12">
 							<ol>
-								<li ng-repeat="performance in upcomingPerformances | limitTo: 4">
+								<li ng-repeat="performance in topShows | limitTo: 4">
 									<div class="row">
 										<div class="col-md-3">
-											<img ng-src="{{image}}" class="iconImageTopShows">
+											<img ng-src="{{performance.userPhotoUrl}}" class="iconImageTopShows">
 										</div>
 										<div class="col-md-4 performanceStats">
-											<div><a href="#">459</a> Viewers</div>
-											<div><a href="#">2890</a> Laughs</div>
+											<div><a href="#">{{performance.numberOfViewers}}</a> Viewers</div>
+											<div><a href="#">{{performance.showRating}}</a> Laughs</div>
 										</div>
 										<div class="col-md-5 performanceName">
-											<span>{{performance.category}}</span>
+											<span>{{performance.topic}}</span>
 										</div>
 									</div>
 								</li>
@@ -145,19 +119,16 @@
 		</div>
 		<div class="row scrollComedyRollUpcomingPerformances">
 			<div class="col-md-12">
-				<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingPerformances">
+				<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingShows">
 					<span class="col-md-1 iconImageContainer">
-						<img ng-src="{{performance.icon}}" class="iconImage2">
+						<img ng-src="{{performance.userPhotoUrl}}" class="iconImage2">
 					</span>
 					<span class="col-md-2 text-left paddingTop">
-						<span class="performanceUserName">{{performance.userName}}</span>
-						<div class="performanceTime">{{performance.duration}} min</div>
-						<div>
-							<button class="watchButton">Watch</button>
-						</div>
+						<span class="performanceUserName">{{performance.host}}</span>
+                        <div class="performanceTime">{{performance.duration}} min</div>
 					</span>
 					<span class="col-md-8 performanceCategory">
-						{{performance.category}}
+						{{performance.topic}}
 						<div class="performanceViewers">
 							29 Viewers - Ranked 129th
 						</div>

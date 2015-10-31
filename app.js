@@ -85,42 +85,63 @@ app.get('/logout', function(req, res){
 });
 
 // Creating Server and Listening for Connections \\
-var port = 3000
-app.listen(port, function(){
-  console.log('Server running on port ' + port);
+//var port = 3000
+//app.listen(port, function(){
+//  console.log('Server running on port ' + port);
+//
+//})
 
-})
+app.server = app.listen(3000)
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
 
+var Show = require('./models/showModel.js')
 var io = require("socket.io")
 var socketServer = io(app.server)
 
-// socket servers can proactively emit messages for no reason!
-// setInterval(function(){socketServer.emit('chatMessage',{content:'hi!'})},400)
-
-// the `socket` object in the callback function represents the socket connection for a single user.
-socketServer.use(function(socket, next){
-    
-})
 socketServer.on("connection", function(socket){
-    console.log('someone connected!')
-
-    socket.join('super cool room')
-
-    socket.on('myAwesomeCustomEvent', function(data){
-        console.log(data)
-        socketServer.emit('myAwesomeCustomEvent', data) // sends message to everyone
-        socketServer.to('super cool room').emit('myAwesomeCustomEvent', data)
+    console.log('someone connected!')  
+    
+//    socket.join('super cool room')
+//
+//    socket.on('myAwesomeCustomEvent', function(data){
+//        console.log(data)
+//        socketServer.emit('myAwesomeCustomEvent', data) // sends message to everyone
+//        socketServer.to('super cool room').emit('myAwesomeCustomEvent', data)
+//    })
+//
+//
+//    socket.on('disconnect', function(){
+//        console.log('someone disconnected')
+//    })
+    
+    socket.on('laugh', function(sid) {
+        console.log('sid : ', sid)
+        Show.update({_id: sid}, {$inc: {showRating: 1}}, function(err, doc) {
+            Show.findOne({_id: sid}, function(err, doc) {
+                socketServer.emit('laughUpdate', doc.showRating)
+            })
+        })
     })
-
-
-    socket.on('disconnect', function(){
-        console.log('someone disconnected')
+    
+    socket.on('starttheshow', function() {
+        socketServer.emit('startingtheshow', false)
     })
+    
+    socket.on('addcomment', function(data) {
+        Show.update({_id: data.sid}, {$push: {comments: data.comment}}, function(err, doc) {
+//            Show.findOne({_id: sid}, function(err, doc) {
+//                socketServer.emit('updatecomments', doc.comments)
+//            })
+            socketServer.emit('updatecomments', data.comment)
+        })
+        
+    })
+    
+    
 
 
 

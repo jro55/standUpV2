@@ -19,8 +19,47 @@
 <!--</div>-->
 
 <div ng-if="currentUser.userName === thisShow.host">
-<div id='myPublisherDiv'></div>
-<button ng-click="countdown()">Start Show</button> 
+<div class="row">
+		<div class="col-md-12 text-center performerHeader">
+			<h1>This is my show!</h1>
+			<div>Ranked <a href="#">#8</a>               </div>
+			<button ng-click="startTheShow()" class="btn btn-primary" style="margin-top: 10px">Start The Show!</button>
+		</div>
+	</div>
+	<div class="row performerDetails">
+		<div class="col-md-3 col-md-offset-3 text-left">
+			{{min}}:{{sec}}
+		</div>
+		<div class="col-md-3 text-right">
+			Laugh-O Meter: <a href="#">{{laughCounter}}</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 liveFeed">
+            <div id='myPublisherDiv'></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 commentBox">
+			<div ng-repeat="comment in showComments" class="positionCommentBox">
+				<div>
+					{{comment}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 100px">
+		<div class="col-md-8 col-md-offset-2">
+			<textarea class="actualCommentBox" type="text" rows="2" ng-model="yourComment" placeholder="Let them know what you think">
+			</textarea>
+			<input type="submit" value="Submit now" class="btn btn-primary submitComment" ng-click="submitYourComment(yourComment)">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 footer userPageFooter text-center">
+			<span>StandUp is protected under Super Awesome Trademark Services</span>
+		</div>
+	</div>
 </div>
 
 
@@ -37,25 +76,24 @@
 		<div class="col-md-12 text-center performerHeader">
 			<h1>{{thisShow.host}}</h1>
 			<div>Ranked <a href="#">#8</a>               </div>
-			<button ng-click="countdown()">Start Timer</button>
 		</div>
 	</div>
 	<div class="row performerDetails">
-		<div class="col-md-4 col-md-offset-2 text-left">
+		<div class="col-md-3 col-md-offset-3 text-left">
 			{{min}}:{{sec}}
 		</div>
-		<div class="col-md-4 text-right">
-			Laugh-O Meter: <a href="#">{{laughOMeter}}</a>
+		<div class="col-md-3 text-right">
+			Laugh-O Meter: <a href="#">{{laughCounter}}</a>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2 liveFeed">
-            <div id='subscribersDiv'></div>
+		<div class="col-md-6 col-md-offset-3 liveFeed">
+            <div id='subscribersDiv' ng-show="viewShow"></div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 commentBox">
-			<div ng-repeat="comment in comments" class="positionCommentBox">
+			<div ng-repeat="comment in showComments" class="positionCommentBox">
 				<div>
 					{{comment}}
 				</div>
@@ -66,12 +104,12 @@
 		<div class="col-md-8 col-md-offset-2">
 			<textarea class="actualCommentBox" type="text" rows="2" ng-model="yourComment" placeholder="Let them know what you think">
 			</textarea>
-			<input type="submit" value="Submit now" class="btn btn-primary submitComment" ng-click="submitYourComment()">
+			<input type="submit" value="Submit now" class="btn btn-primary submitComment" ng-click="submitYourComment(yourComment)">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 text-left laughButton">
-			<button ng-click="laughing()" ng-class="{ 'laughed': currentlyLaughing }" class="btn laughButtonButton">Laugh</button>
+			<button ng-click="laugh()" ng-class="{ 'laughed': currentlyLaughing }" class="btn laughButtonButton">Laugh</button>
 			<!-- <button ng-click="isTooManyLaughs()" class="btn">Laugh</button> -->
 		</div>
 	</div>

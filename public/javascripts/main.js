@@ -55,6 +55,9 @@ angular.module('myApp')
         
     }])
 
+
+
+//-=-=-=-=-=-=-=-=-=- MAINCONTROLLER -=-=-=-=-=-=-=-=-=-\\
 angular.module('myApp')
     .controller("mainController", ['$scope', '$http', 'authService', '$location', function($scope, $http, authService, $location) {
         
@@ -207,6 +210,14 @@ angular.module('myApp')
             console.log(returnData.data)
             $scope.users = returnData.data.sort(function(a, b){
                 return b.laughterPoints - a.laughterPoints
+            }) 
+    })
+    
+    $http.get('/api/getupcomingshows')
+        .then(function(returnData) {
+            console.log(returnData.data)
+            $scope.topShows = returnData.data.sort(function(a, b){
+                return b.showRating - a.showRating
             }) 
     })
     
@@ -378,7 +389,7 @@ angular.module('myApp')
                 var session = OT.initSession(apiKey, sessionId);
                 
         
-                var token = 'T1==cGFydG5lcl9pZD00NTM5MDk0MiZzaWc9OThhZDliNzhkNWFiNzg1NGZjNDc0ODU4MGQzMmZmNmM0NWZhMTVmZjpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UTTVNRGswTW41LU1UUTBOakExTVRjd09URTVOSDVTWW1Sd1ZVOXJibmQ1Y1M5bFdrNVpVa1ZUU0VGdUszTi1VSDQmY3JlYXRlX3RpbWU9MTQ0NjA1MTk4MCZub25jZT0wLjUyNDkzNDA5NTgyMDA0NTImZXhwaXJlX3RpbWU9MTQ0NjEzODM4MA==';
+                var token = 'T1==cGFydG5lcl9pZD00NTM5MDk0MiZzaWc9OWMxMDJlZDc4N2Y0MDU1ODY1M2VmMjUzZWFkZGM2YzRlMTA0ZWQ1ZDpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UTTVNRGswTW41LU1UUTBOakExTVRjd09URTVOSDVTWW1Sd1ZVOXJibmQ1Y1M5bFdrNVpVa1ZUU0VGdUszTi1VSDQmY3JlYXRlX3RpbWU9MTQ0NjE1MjM3MCZub25jZT0wLjQxMDM2MTc2OTc3ODAzNzImZXhwaXJlX3RpbWU9MTQ0ODc0NDMzOCZjb25uZWN0aW9uX2RhdGE9';
         var hostName = window.location.hash.split('/')[2]
         console.log('What gets sliced: ', hostName)
 		$http.get('/api/shows/' + hostName)
@@ -394,7 +405,7 @@ angular.module('myApp')
                 if (error) {
                     console.log(error.message);
                 } else {
-                    session.publish('myPublisherDiv');
+                    session.publish('myPublisherDiv', {height: '100%', width: '100%'});
                 }
             });
         
@@ -449,26 +460,67 @@ angular.module('myApp')
 
         };
 
-        $scope.stop = function () {
-            $scope.counter = 0;
-            $scope.min = '0' + 0;
-            $scope.sec = '0' + 0;
-            $timeout.cancel(stopped);
-            $scope.durationDisappear = false;
+//        $scope.stop = function () {
+//            $scope.counter = 0;
+//            $scope.min = '0' + 0;
+//            $scope.sec = '0' + 0;
+//            $timeout.cancel(stopped);
+//            $scope.durationDisappear = false;
+//        }
+//
+//        $scope.pause = function () {
+//            $timeout.cancel(stopped);
+//
+//        }
+        
+//        $scope.submitYourComment = function() {
+//		$http.post('/api/show/comments', $scope.yourComment)
+//            .then(function(returnData) {
+//                console.log(returnData.data)
+//		        $scope.yourComment = ""    
+//            })
+//	    }
+        
+        $scope.showComments = []
+        $scope.viewShow = false;
+//        $scope.yourComment = ''
+        
+        var socket = io();
+         
+        $scope.laughCounter = 0
+        $scope.laugh = function() {
+            socket.emit('laugh', $scope.thisShow._id)
         }
-
-        $scope.pause = function () {
-            $timeout.cancel(stopped);
-
+        socket.on('laughUpdate', function(numLaughs) {
+            console.log('laughs: ', numLaughs)
+            $scope.$apply( function() {
+                $scope.laughCounter = numLaughs
+            })
+//            $scope.laughCounter = numLaughs
+//            $scope.$apply()
+           
+        })
+        
+        $scope.startTheShow = function() {
+            socket.emit('starttheshow', false)
+        }
+        socket.on('startingtheshow', function() {
+            $scope.$apply( function() {
+                $scope.countdown()
+                $scope.viewShow = true;
+            })
+        })
+        
+        $scope.submitYourComment = function(yourComment) {
+            socket.emit('addcomment', {sid: $scope.thisShow._id, comment: $scope.currentUser.userName + ": " + yourComment})
         }
         
-        $scope.submitYourComment = function() {
-		$http.post('/api/show/comments', $scope.yourComment)
-            .then(function(returnData) {
-                console.log(returnData.data)
-		        $scope.yourComment = ""    
+        socket.on('updatecomments', function(comments) {
+            console.log(comments)
+            $scope.$apply( function() {
+                $scope.showComments.push(comments) 
             })
-	    }
+        })
         
 
 }]);

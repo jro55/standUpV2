@@ -45,25 +45,43 @@
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 viewProfile">
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<h3>About</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 bio">
-							<h4>Bio</h4>
-							<p>{{userProfile.bio}}</p>
-						</div>
-						<div class="col-md-12 bio">
-							<h4>Favorite Quotes</h4>
-							<p>{{userProfile.favoriteQuote}}</p>
-						</div>
-						<div class="col-md-12 bio" style="margin-bottom: 20px">
-							<h4>Nick Names</h4>
-							<p>bigPoppa, lightening man.</p>
-						</div>
-					</div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 text-left">
+                                    <h3>About</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 bio">
+                                    <h4>Bio</h4>
+                                    <p>{{userProfile.bio}}</p>
+                                </div>
+                                <div class="col-md-12 bio">
+                                    <h4>Favorite Quotes</h4>
+                                    <p>{{userProfile.favoriteQuote}}</p>
+                                </div>
+                                <div class="col-md-12 bio" style="margin-bottom: 20px">
+                                    <h4>Nick Names</h4>
+                                    <p>bigPoppa, lightening man.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <div>
+                                        <h2 style="color: #F38630; margin-top: 55px">
+                                        {{userProfile.numberOfPerformances}}
+                                        </h2>
+                                        <div class="styleThis">total performances!</div>
+                                        <h2 style="color: #F38630; margin-top: 25px">{{userProfile.laughterPoints}}</h2>
+                                        <div class="styleThis">laughter points!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
 				</div>
 			</div>
 			<div class="row viewProfileBasicInfo">

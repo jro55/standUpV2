@@ -40,15 +40,18 @@
 			<div class="row scrollComedyRoll">
 				<div class="col-md-12">
 					<div class="row comedyRollPerformers" ng-repeat="(performer, performance) in upcomingShows">
+						
 						<span class="col-sm-2 col-md-2 iconImageContainer">
-							<img ng-src="{{performance.userPhotoUrl}}" class="iconImage">
+                            <a href="/#viewshow/{{performance.host}}"><img ng-src="{{performance.userPhotoUrl}}" class="iconImage"></a>
 						</span>
 						<span class="col-sm-3 col-md-3 text-left paddingTop">
 							<span class="performanceUserName">{{performance.host}}</span>
 							<div class="performanceTime">{{performance.duration}} min</div>
+<!--
 							<div>
 								<button class="watchButton"><a href="/#viewshow/{{performance.host}}">Watch</a></button>
 							</div>
+-->
 						</span>
 						<span class="col-sm-7 col-md-7 text-right performanceCategory">
 							{{performance.topic}}
