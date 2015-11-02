@@ -206,7 +206,7 @@
 					</div>
 					<div class="row scrollComedyRoll">
 						<div class="col-sm-12 col-md-12">
-							<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingShows">
+							<div class="row comedyRollPerformers" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="(performer, performance) in upcomingShows | limitTo: 4">
 								<span class="col-sm-2 col-md-2 iconImageContainer">
 									<img ng-src="{{performance.userPhotoUrl}}" class="iconImage">
 								</span>
@@ -225,16 +225,18 @@
 							</div>
 						</div>
 					</div>
+<!--
 					<div class="row">
 						<div class="col-md-12">
 							<a href="./upcomingShows.html">View all upcoming shows</a>
 						</div>
 					</div>
+-->
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="margin-top: 80px">
 		<div class="col-md-12 footer userPageFooter text-center">
 			<span>StandUp is protected under Super Awesome Trademark Services</span>
 		</div>

@@ -10,7 +10,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<button class="btn btn-primary" ng-click="accountInfoToggleOverview()">this week</button>
+							<button class="btn btn-primary active" ng-click="accountInfoToggleOverview()">this week</button>
 							<button class="btn btn-primary" ng-click="accountInfoToggleDetails()">this month</button>
 							<button class="btn btn-primary" ng-click="accountInfoToggleBasic()">of all time</button>
 						</div>
@@ -127,10 +127,13 @@
 						<span class="performanceUserName">{{performance.host}}</span>
                         <div class="performanceTime">{{performance.duration}} min</div>
 					</span>
-					<span class="col-md-8 performanceCategory">
+					<span class="col-md-4 performanceCategory1">
+						{{performance.topic}}
+					</span>
+					<span class="col-md-4 performanceCategory">
 						{{performance.topic}}
 						<div class="performanceViewers">
-							29 Viewers - Ranked 129th
+							{{performance.numberOfViewers}} Viewers - Ranked 129th
 						</div>
 					</span>
 				</div>

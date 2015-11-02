@@ -92,7 +92,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2 commentBox">
+		<div class="col-md-6 col-md-offset-3 commentBox">
 			<div ng-repeat="comment in showComments" class="positionCommentBox">
 				<div>
 					{{comment}}
@@ -101,14 +101,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-6 col-md-offset-3">
 			<textarea class="actualCommentBox" type="text" rows="2" ng-model="yourComment" placeholder="Let them know what you think">
 			</textarea>
 			<input type="submit" value="Submit now" class="btn btn-primary submitComment" ng-click="submitYourComment(yourComment)">
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2 text-left laughButton">
+		<div class="col-md-6 col-md-offset-3 text-left laughButton">
 			<button ng-click="laugh()" ng-class="{ 'laughed': currentlyLaughing }" class="btn laughButtonButton">Laugh</button>
 			<!-- <button ng-click="isTooManyLaughs()" class="btn">Laugh</button> -->
 		</div>

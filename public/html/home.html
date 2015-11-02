@@ -27,11 +27,7 @@
 <!-- -=-=-=-=-=-=-=-=-=-=- THREE BOXES -=-=-=-=-=-=-=-=-=-=- -->
 
 	<div class="row threeBoxes">
-		<div class="hidden-xs hidden-sm col-md-4 text-center">
-			<h3>News</h3>
-			<div id="feedControl">Loading...</div>
-		</div>
-		<div class="col-sm-6 col-md-4 comedyRoll text-center">
+		<div class="col-sm-6 col-md-4 col-md-offset-1 comedyRoll text-center">
 			<div class="row upcomingShowsBorder">
 				<div class="col-md-row-12">
 					<h3><a href="/#upcomingshows">Upcoming Shows</a></h3>
@@ -39,7 +35,7 @@
 			</div>
 			<div class="row scrollComedyRoll">
 				<div class="col-md-12">
-					<div class="row comedyRollPerformers" ng-repeat="(performer, performance) in upcomingShows">
+					<div class="row comedyRollPerformers" ng-repeat="(performer, performance) in upcomingShows | limitTo: 4">
 						
 						<span class="col-sm-2 col-md-2 iconImageContainer">
                             <a href="/#viewshow/{{performance.host}}"><img ng-src="{{performance.userPhotoUrl}}" class="iconImage"></a>
@@ -63,6 +59,46 @@
 				</div>
 			</div>
 		</div>
+
+        <div class="col-sm-6 col-md-4 col-md-offset-2 comedyRoll text-center">
+			<div class="row upcomingShowsBorder">
+				<div class="col-md-row-12">
+					<h3><a href="/#upcomingshows">Top Comedians</a></h3>
+				</div>
+			</div>
+			<div class="row scrollComedyRoll">
+				<div class="col-md-12">
+					<div class="row comedyRollPerformers" ng-repeat="(performer, performance) in users | limitTo: 4">
+						
+						<span class="col-sm-2 col-md-2 iconImageContainer">
+                            <a href="/#viewshow/{{performance.host}}"><img ng-src="{{performance.photoUrl}}" class="iconImage"></a>
+						</span>
+						<span class="col-sm-4 col-md-4 text-left paddingTop">
+                            <span class="namePlacement"><a href="/#profile/{{performance.userName}}">{{performance.userName}}</a></span>
+<!--
+							<div>
+								<button class="watchButton"><a href="/#viewshow/{{performance.host}}">Watch</a></button>
+							</div>
+-->
+						</span>
+						<span class="col-sm-6 col-md-6 text-right performanceCategory">
+							{{performance.topic}}
+							<div class="laughsRank">
+								{{performance.laughterPoints}} Laughs - {{performance.numberOfPerformances}} Performances
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--
+		<div class="hidden-xs hidden-sm col-md-4 text-center">
+			<h3>News</h3>
+			<div id="feedControl">Loading...</div>
+        <div class="testthis"></div>
+		</div>
+-->
+<!--
 		<div class="col-sm-6 col-md-4 text-center topComedians">
 			<h3>Top Comedians</h3>
 			<div class="row">
@@ -86,6 +122,7 @@
 						</div>
 					</div>
 		</div>
+-->
 	</div>
 	<div class="row">
 		<div class="col-md-12 pageBreak">
@@ -106,7 +143,7 @@
 						<li>Gain popularity and followers to help fund your comedic journey. Once you hit 40 followers, you are upgraded to serious status and can now host paid shows to help fund your career.</li>
 						<li>Rank up on the site to ultimately become the Comedic God.</li>
 					</ul>
-					<div class="learnMore text-center">
+					<div class="learnMore text-left">
 					    <a href="/#signup">
 						    Learn more about becoming a comedian.
                         </a>
@@ -120,7 +157,7 @@
 						<li>Follow your favorite comedians so you always know when they have a show.</li>
 						<li>Just click 'watch' on a comedians to watch now!</li>
 					</ul>
-                    <a href="/#signup"><div class="learnMore text-center" style="z-index: 2">See all of our user features.</div></a>
+                    <a href="/#signup"><div class="learnMore text-left" style="z-index: 2">See all of our user features.</div></a>
 					<div class="tvBackground"></div>
 				</div>
 			</div>

@@ -252,6 +252,7 @@ body {
 .learnMore {
 	margin-bottom: 30px;
     font-size: 120%;
+    margin-left: 22px;
 }
 
 .learnMore a {
@@ -821,4 +822,29 @@ body {
     font-size: 120%;
     font-style: strong;
     margin-top: 10px;
+}
+
+.testthis {
+    background-image: url(../images/dontjust.jpg);
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.namePlacement {
+    margin-top: 8px;
+    position: absolute;
+    font-size: 130%;
+	font-weight: bold;
+}
+
+.laughsRank {
+    padding-top: 10px;
+	font-size: 100%;
+	bottom: 10px;
+}
+
+.performanceCategory1 {
+    padding-top: 15px;
+	font-size: 115%;
 }
