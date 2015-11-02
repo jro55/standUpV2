@@ -6,7 +6,7 @@ var User = require('../models/userModel.js')
 passport.use(new FacebookStrategy({
         clientID: '1487932484869129',
         clientSecret: '4470fc8237698e60a96998383c899a1f',
-        callbackURL: "http://159.203.106.140/:3000/auth/facebook/callback",
+        callbackURL: "http://159.203.106.140:3000/auth/facebook/callback",
         enableProof: false
     },
     function (accessToken, refreshToken, profile, done) {

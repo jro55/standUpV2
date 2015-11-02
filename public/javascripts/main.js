@@ -420,7 +420,7 @@ angular.module('myApp')
         authService.authCheck(function(user){
             console.log('USER!', user)
             $scope.currentUser = user
-    })c
+    })
         
         
         $scope.sec = '0' + 0;
@@ -512,7 +512,7 @@ angular.module('myApp')
         })
         
         $scope.submitYourComment = function(yourComment) {
-            socket.emit('addcomment', {sid: $scope.thisShow._id, comment: $scope.currentUser.userName + ": " + yourComment})
+            socket.emit('addcomment', {sid: $scope.thisShow._id, comment: $scope.currentUser.userName + ": "  + yourComment})
         }
         
         socket.on('updatecomments', function(comments) {
