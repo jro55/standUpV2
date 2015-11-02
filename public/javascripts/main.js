@@ -420,7 +420,7 @@ angular.module('myApp')
         authService.authCheck(function(user){
             console.log('USER!', user)
             $scope.currentUser = user
-    })
+    })c
         
         
         $scope.sec = '0' + 0;
