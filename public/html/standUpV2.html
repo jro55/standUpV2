@@ -40,10 +40,10 @@ google.setOnLoadCallback(load);
 		<div class="container-fluid">
             <div class="hoverEffects"><a class="navbar-brand" href="/#/" style="color: white">StandUp</a></div>
 			<ul class="nav navbar-nav navbar-right">
-				<li ng-hide="loggedIn" ng-click="toggleSignIn()" class="hoverEffects"><a href="/auth/facebook" style="color: white">Sign In</a></li>
+				<li ng-hide="loggedIn" ng-click="toggleSignIn()" class="hoverEffects"><a href="/auth/facebook" style="color: white">Log In</a></li>
 				<li ng-hide="loggedIn" class="hoverEffects"><a href="/#signup" style="color: white">Register</a></li>
 <!--				<li class="hoverEffects"><a href="#" style="color: white">About</a></li>-->
-                <li ng-show="loggedIn" class="hoverEffects"><a href="/logout" style="color: white">Sign Out</a></li>
+                <li ng-show="loggedIn" class="hoverEffects"><a href="/logout" style="color: white">Log Out</a></li>
 				<li ng-show="loggedIn" class="hoverEffects"><a href="/#userpage/{{currentUser.userName}}" style="color: white"><span class="glyphicon glyphicon-user"></a></li>
 			</ul>				
 		</div>
