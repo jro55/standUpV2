@@ -441,7 +441,7 @@ angular.module('myApp')
         $scope.countdown = function () {
             $scope.durationDisappear = true;
             stopped = $timeout(function () {
-                console.log(parseInt($scope.counter);
+                console.log(parseInt($scope.counter));
                 parseInt($scope.counter--);
                 $scope.countdown();
             }, 1000);
