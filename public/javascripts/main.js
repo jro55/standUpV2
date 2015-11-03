@@ -424,9 +424,9 @@ angular.module('myApp')
     })
         
         
-//        $scope.sec = '0' + 0;
-        $scope.min = 0;
-//        $scope.counter = $scope.min * 60;
+        $scope.sec = '0' + 0;
+        $scope.min = 5;
+        $scope.counter = $scope.min * 60;
 
         var stopped;
 //        var audio = new Audio('ding.mp3');
@@ -434,9 +434,9 @@ angular.module('myApp')
 
 
         
-        $scope.counter = 5 * 60;
-        $scope.sec = '0' + 0
-        console.log($scope.counter)
+//        $scope.counter = 5 * 60;
+//        $scope.sec = '0' + 0
+//        console.log($scope.counter)
 
         $scope.countdown = function () {
             $scope.durationDisappear = true;
