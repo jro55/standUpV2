@@ -436,7 +436,7 @@ angular.module('myApp')
         
         $scope.counter = 5 * 60;
         $scope.sec = '0' + 0
-        
+        console.log($scope.counter)
 
         $scope.countdown = function () {
             $scope.durationDisappear = true;
