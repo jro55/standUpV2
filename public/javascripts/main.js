@@ -52,6 +52,13 @@ angular.module('myApp')
             }
     })
         
+        $scope.logMeOut = function() {
+            $http.get('logout')
+                .then(function() {
+                    console.log("logged out")
+            })
+        }
+        
         
     }])
 
