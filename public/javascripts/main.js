@@ -425,7 +425,7 @@ angular.module('myApp')
         
         
         $scope.sec = '0' + 0;
-        $scope.min = 5;
+        $scope.min = ;
         $scope.counter = $scope.min * 60;
 
         var stopped;
@@ -441,8 +441,8 @@ angular.module('myApp')
         $scope.countdown = function () {
             $scope.durationDisappear = true;
             stopped = $timeout(function () {
-                console.log(parseInt($scope.counter));
-                parseInt($scope.counter--);
+                console.log($scope.counter);
+                $scope.counter--;
                 $scope.countdown();
             }, 1000);
             $scope.min = (($scope.counter / 60) - ($scope.counter % 60 / 60))
