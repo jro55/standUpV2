@@ -15,7 +15,7 @@ var updateAboutYou = function(req, res) {
 }
 
 var updateBasicInfo = function(req, res) {
-    User.update({name: req.body.name}, {$set: {userName: req.body.userName, email: req.body.email, location: req.body.location, gender: req.body.gender, age: req.body.age}}, function(err, docs) {
+    User.update({_id: req.body._id}, {$set: {userName: req.body.userName, email: req.body.email, location: req.body.location, gender: req.body.gender, age: req.body.age}}, function(err, docs) {
         console.log(docs)
         res.send(docs)
     })
