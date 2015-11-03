@@ -43,7 +43,7 @@ google.setOnLoadCallback(load);
 				<li ng-hide="loggedIn" ng-click="toggleSignIn()" class="hoverEffects"><a href="/auth/facebook" style="color: white">Sign In</a></li>
 				<li ng-hide="loggedIn" class="hoverEffects"><a href="/#signup" style="color: white">Register</a></li>
 <!--				<li class="hoverEffects"><a href="#" style="color: white">About</a></li>-->
-                <li ng-show="loggedIn" class="hoverEffects"><a href="/#signup" style="color: white">Sign Out</a></li>
+                <li ng-show="loggedIn" ng-click="logMeOut" class="hoverEffects" style="color: white">Sign Out</li>
 				<li ng-show="loggedIn" class="hoverEffects"><a href="/#userpage/{{currentUser.userName}}" style="color: white"><span class="glyphicon glyphicon-user"></a></li>
 			</ul>				
 		</div>
