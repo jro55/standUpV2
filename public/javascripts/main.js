@@ -429,12 +429,12 @@ angular.module('myApp')
         $scope.counter = $scope.min * 60;
 
         var stopped;
-        var audio = new Audio('ding.mp3');
-        console.log(parseInt($scope.counter))
+//        var audio = new Audio('ding.mp3');
+//        console.log(parseInt($scope.counter))
 
 
         
-//        $scope.counter = 5 * 60;
+        $scope.counter = 5 * 60;
         $scope.sec = '0' + 0
         
 
