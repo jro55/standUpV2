@@ -425,7 +425,7 @@ angular.module('myApp')
         
         
         $scope.sec = '0' + 0;
-        $scope.min = ;
+        $scope.min = 0;
         $scope.counter = $scope.min * 60;
 
         var stopped;
