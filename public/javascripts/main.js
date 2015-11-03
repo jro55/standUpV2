@@ -384,7 +384,7 @@ angular.module('myApp')
 angular.module('myApp')
     .controller("showController", ['$scope', '$http', 'authService', '$timeout', function($scope, $http, authService, $timeout) {
         
-        
+                $scope.yourComment = {comment : ''}
                 var apiKey = 45390942;
                 var sessionId = '1_MX40NTM5MDk0Mn5-MTQ0NjA1MTcwOTE5NH5SYmRwVU9rbnd5cS9lWk5ZUkVTSEFuK3N-UH4';
                 var session = OT.initSession(apiKey, sessionId);
@@ -512,14 +512,18 @@ angular.module('myApp')
             })
         })
         
-        $scope.submitYourComment = function(yourComment) {
-            socket.emit('addcomment', {sid: $scope.thisShow._id, comment: $scope.currentUser.userName + ": "  + yourComment})
+        $scope.submitYourComment = function() {
+            console.log('!')
+            socket.emit('addcomment', {sid: $scope.thisShow._id, comment: $scope.currentUser.userName + ": "  + $scope.yourComment.comment})
         }
         
         socket.on('updatecomments', function(comments) {
             console.log(comments)
             $scope.$apply( function() {
-                $scope.showComments.push(comments) 
+                $scope.showComments.push(comments)
+                $scope.yourComment.comment = ""
+                console.log($scope)
+
             })
         })
         
