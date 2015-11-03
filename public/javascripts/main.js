@@ -430,7 +430,7 @@ angular.module('myApp')
 
         var stopped;
 //        var audio = new Audio('ding.mp3');
-//        console.log(parseInt($scope.counter))
+        console.log(parseInt($scope.counter))
 
 
         
@@ -456,7 +456,7 @@ angular.module('myApp')
 
             if ($scope.counter == 0) {
                 $timeout.cancel(stopped)
-                audio.play();
+//                audio.play();
             }
 
         };
